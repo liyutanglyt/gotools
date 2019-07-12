@@ -10,12 +10,12 @@
 
 2. 例如现在平台下有10个银行，每个银行有20个服务商，每个服务商有30个商户，并且要求每个银行、服务商、商户都有自己的角色、权限、用户管理
 
-3. 按这种业务层级机构来使用gotools完成权限管理，使用步骤如下：
-3.1. git clone https://github.com/gopark001/gotools
-3.2. cd gotools/configs
-3.3. 修改mysql.toml，将mysql配置信息改为你的数据库信息，数据库名称可随意
-3.4. 修改casbin.toml，将mysql配置信息改为你的数据库信息，且数据库名称必须为casbin
-3.5. 修改org_type.json, 这个文件中存的是机构类型，有层级关系，配置如下:  
+# 按上面这种业务层级机构来使用gotools完成权限管理，使用步骤如下：
+1. git clone https://github.com/gopark001/gotools
+2. cd gotools/configs
+3. 修改mysql.toml，将mysql配置信息改为你的数据库信息，数据库名称可随意
+4. 修改casbin.toml，将mysql配置信息改为你的数据库信息，且数据库名称必须为casbin
+5. 修改org_type.json, 这个文件中存的是机构类型，有层级关系，配置如下:  
 ```
 [
   { "id":1, "parent_id":0, "name":"平台",   "code":"platform" },
@@ -24,7 +24,7 @@
   { "id":4, "parent_id":3, "name":"商户",   "code":"shop" }
 ]
 ```
-3.6. 修改org.json, 这个文件中存的是机构的数据库字段定义，配置如下:  
+6. 修改org.json, 这个文件中存的是机构的数据库字段定义，配置如下:  
 ```
 {
   "bank": {
@@ -61,6 +61,6 @@
   }
 }
 ```
-3.7. go build gotools.go
-3.8. gotools -newProject hello
+7. go build gotools.go
+8. gotools -newProject hello
 
