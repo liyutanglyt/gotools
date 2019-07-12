@@ -92,7 +92,8 @@ cd hello-admin
 npm install && npm run dev
 ```
 9. 初始化超级管理员账号密码为：super_admin/111111
-有疑问可以加我微信：wangwei276711392
+有疑问可以加我微信：
+![](https://github.com/gopark001/gotools/blob/master/images/WechatIMG605.jpeg)
 
 
 
