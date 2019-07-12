@@ -26,6 +26,8 @@
 ```
 6. 修改org.json, 这个文件中存的是机构的数据库字段定义，配置如下:  
 ```
+// "code": "string,50,银行编码,1"
+// code为数据库字段名称，string是golang中的数据类型,50是字段长度,银行编码是字段描述,1是字段顺序
 {
   "bank": {
     "code":           "string,50,银行编码,1",
@@ -72,6 +74,22 @@ gotools -newProject hello
 
 // windows
 gotools.exe -newProject hello
+```
+8. 查看并启动生成的代码
+```
+// 启动生成的go程序
+cd gotools/output
+
+cd hello-go/cmd
+
+go run main.go
+
+// 启动生成的前端Vue程序
+cd gotools/output
+
+cd hello-admin
+
+npm install && npm run dev
 ```
 
 
