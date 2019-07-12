@@ -69,10 +69,10 @@ cd gotools/cmd
 
 go build gotools.go
 
-// mac/linux
+// MacOS/Linux
 gotools -newProject hello
 
-// windows
+// Windows
 gotools.exe -newProject hello
 ```
 8. 查看并启动生成的代码
