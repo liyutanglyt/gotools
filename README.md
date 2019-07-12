@@ -1,12 +1,12 @@
 # gotools
 1. gotools是一个带角色、权限、用户管理的Go脚手架
-2. gotools可一键生成开箱即用的源码程序，可一键生成简单的增删改查前后端代码
-2. 前端使用Vue、ElementUI、vue-element-admin等开源技术
-3. 后端使用gin、xormplus、casbin、gf、jwt等开源技术
+2. gotools可一键生成开箱即用的源码程序，一键生成基础的增删改查前后端代码
+2. 前端使用Vue、ElementUI、vue-element-admin等开源项目
+3. 后端使用gin、xormplus、casbin、gf、jwt等开源项目
 
 # 权限层级机构
 1. 比如我的系统层级结构是：平台->银行->服务商->商家，我们暂且叫这四个层级为机构类型，如下图：
-![组织架构](https://github.com/gopark001/gotools/blob/master/1562936179826.jpg)  
+![](https://github.com/gopark001/gotools/blob/master/images/1562936179826.jpg)  
 
 2. 例如现在平台下有10个银行，每个银行有20个服务商，每个服务商有30个商户，并且要求每个银行、服务商、商户都有自己的角色、权限、用户管理
 
@@ -69,10 +69,10 @@ cd gotools/cmd
 
 go build gotools.go
 
-// mac/linux
+// MacOS/Linux
 gotools -newProject hello
 
-// windows
+// Windows
 gotools.exe -newProject hello
 ```
 8. 查看并启动生成的代码
