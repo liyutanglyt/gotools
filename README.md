@@ -6,19 +6,61 @@
 
 # 权限层级机构
 1. 比如我的系统层级结构是：平台->银行->服务商->商家，我们暂且叫这四个层级为机构类型，如下图：
-![组织架构](https://github.com/gopark001/gotools/blob/master/1562936179826.jpg)
-2. 业务要求每个机构类型下的机构都能自由定义角色、权限、用户管理
-例如：
-  平台下管理20个银行，这20个银行都有自己的角色、权限、用户管理
-  每个银行管理100个服务商，这100个服务商都有自己的角色、权限、用户管理，以此类推到商家
-3. 
+![组织架构](https://github.com/gopark001/gotools/blob/master/1562936179826.jpg)  
 
-## 使用gotools创建项目
+2. 例如现在平台下有10个银行，每个银行有20个服务商，每个服务商有30个商户，并且要求每个银行、服务商、商户都有自己的角色、权限、用户管理
+
+3. 按这种业务层级机构来使用gotools完成权限管理，使用步骤如下：
 * 1. git clone https://github.com/gopark001/gotools
 * 2. cd gotools/configs
 * 3. 修改mysql.toml，将mysql配置信息改为你的数据库信息，数据库名称可随意
 * 4. 修改casbin.toml，将mysql配置信息改为你的数据库信息，且数据库名称必须为casbin
-* 5. 修改org_type.json
+* 5. 修改org_type.json, 这个文件中存的是机构类型，有层级关系，配置如下:  
+```
+[
+  { "id":1, "parent_id":0, "name":"平台",   "code":"platform" },
+  { "id":2, "parent_id":1, "name":"银行",   "code":"bank" },
+  { "id":3, "parent_id":2, "name":"服务商", "code":"service_provider" },
+  { "id":4, "parent_id":3, "name":"商户",   "code":"shop" }
+]
+```
+* 6. 修改org.json, 这个文件中存的是机构的数据库字段定义，配置如下:  
+```
+{
+  "bank": {
+    "code":           "string,50,银行编码,1",
+    "name":           "string,80,银行名称,2",
+    "contact_name":   "string,40,联系人,3",
+    "service_phone":  "string,20,联系电话,4",
+    "org_type_id":    "int64, 20,所属机构类型ID,5",
+    "org_type_name":  "string,40,所属机构类型名称,6",
+    "account":        "string,40,管理员账号,7"
+  },
+  "service_provider": {
+    "name":           "string,80,服务商名称,1",
+    "contact_name":   "string,40,联系人,2",
+    "service_phone":  "string,20,联系电话,3",
+    "address":        "string,80,联系地址,4",
+    "org_type_id":    "int64, 20,所属机构类型ID,5",
+    "org_type_name":  "string,40,所属机构类型名称,6",
+    "account":        "string,40,管理员账号,7"
+  },
+  "shop": {
+    "name":           "string,80,商家名称,1",
+    "contact_name":   "string,40,联系人,2",
+    "service_phone":  "string,20,服务电话,3",
+    "address":        "string,80,商家地址,4",
+    "org_type_id":    "int64, 20,所属机构类型ID,5",
+    "org_type_name":  "string,40,所属机构类型名称,6",
+    "account":        "string,40,管理员账号,7"
+  },
+  "desc": {
+    "bank": "银行",
+    "service_provider": "服务商",
+    "shop": "商家"
+  }
+}
+```
 * 3. go build gotools.go
 * 4. gotools -newProject hello
 
