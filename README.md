@@ -6,7 +6,7 @@
 
 # 权限层级机构
 1. 比如我的系统层级结构是：平台->银行->服务商->商家，我们暂且叫这四个层级为机构类型，如下图：
-[组织架构](https://github.com/gopark001/gotools/blob/master/1562936179826.jpg)
+![组织架构](https://github.com/gopark001/gotools/blob/master/1562936179826.jpg)
 
 ## 使用gotools创建项目
 * 1. git clone https://github.com/gopark001/gotools
