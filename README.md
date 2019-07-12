@@ -93,7 +93,7 @@ npm install && npm run dev
 ```
 9. 初始化超级管理员账号密码为：super_admin/111111
 有疑问可以加我微信：
-![](https://github.com/gopark001/gotools/blob/master/images/WechatIMG605.jpeg)
+<img src="https://github.com/gopark001/gotools/blob/master/images/WechatIMG605.jpeg" width="200" height="200" align=center>
 
 
 
