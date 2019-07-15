@@ -2,7 +2,9 @@ package http
 
 import (
 	"fmt"
-	"goadmin/internal/api/http/v1"
+	adminv1 "goadmin/internal/api/admin/http/v1"
+	h5v1 "goadmin/internal/api/h5/http/v1"
+	pcv1 "goadmin/internal/api/pc/http/v1"
 	"goadmin/internal/common/middleware/cors"
 	"goadmin/internal/conf"
 	"goadmin/pkg/utils"
@@ -11,14 +13,14 @@ import (
 	"runtime/debug"
 	"time"
 
-	ginglog "github.com/szuecs/gin-glog"
-
 	"goadmin/pkg/jsonutil"
 
 	"github.com/didip/tollbooth"
 	"github.com/didip/tollbooth_gin"
 	"github.com/gin-gonic/gin"
 	"github.com/gogf/gf/g/os/glog"
+
+	ginglog "github.com/szuecs/gin-glog"
 )
 
 // 跨域设置
@@ -42,7 +44,9 @@ func New(router *gin.Engine) (srv *http.Server) {
 	RequestLimiter(router)
 
 	// init routes
-	v1.InitRouter(router)
+	adminv1.InitRouter(router)
+	pcv1.InitRouter(router)
+	h5v1.InitRouter(router)
 
 	// http server
 	srv = &http.Server{

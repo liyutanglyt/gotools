@@ -11,22 +11,24 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// 初始化router，admin是提供给后台管理web浏览器端调用的接口
 func InitRouter(r *gin.Engine) {
-	router := r.Group("/v1/admin_api")
+	router := r.Group("/v1/admin/api")
 	SetupNoneAuthorized(router)
 
-	router.Use(jwt.JWTAuth())
+	// jwt token认证，admin主要针对商家员工的token认证
+	router.Use(jwt.EmployeeJWTAuth())
 	router.Use(casbin.AuthCheckRole())
 	SetupAuthorized(router)
 }
 
-// 不需要token认证的接口
+// 不需要token认证的接口,比如登录、身份认证、获取accessToken的接口
 func SetupNoneAuthorized(router gin.IRouter) {
 	authController := AuthController{}
 	router.POST("/login", authController.Login)
 }
 
-// 需要token认证的接口
+// 需要accessToken身份认证的接口
 func SetupAuthorized(router gin.IRouter) {
 	orgTypeController := OrgTypeController{router}
 	orgTypeController.Setup()

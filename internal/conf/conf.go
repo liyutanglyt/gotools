@@ -15,9 +15,10 @@ import (
 )
 
 var (
-	confPath  string
-	AppConf   = AppConfig{}
-	MySQLConf = MySQLConfig{}
+	confPath   string
+	AppConf    = AppConfig{}
+	MySQLConf  = MySQLConfig{}
+	CasbinConf = MySQLConfig{}
 )
 
 func init() {
@@ -32,6 +33,9 @@ func Init() {
 
 	mysqlPath := fmt.Sprintf("%s/mysql.toml", confPath)
 	tomlDecodeFile(mysqlPath, &MySQLConf)
+
+	casbinPath := fmt.Sprintf("%s/casbin.toml", confPath)
+	tomlDecodeFile(casbinPath, &CasbinConf)
 }
 
 func tomlDecodeFile(fpath string, v interface{}) {

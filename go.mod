@@ -16,8 +16,12 @@ require (
 	github.com/cockroachdb/apd v1.1.0 // indirect
 	github.com/ddliu/go-httpclient v0.6.2
 	github.com/denisenkom/go-mssqldb v0.0.0-20190515213511-eb9f6a1743f3 // indirect
+	github.com/dgrijalva/jwt-go v3.2.0+incompatible // indirect
+	github.com/didip/tollbooth v4.0.1+incompatible // indirect
+	github.com/didip/tollbooth_gin v0.0.0-20170928041415-5752492be505 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.4.7 // indirect
+	github.com/gin-gonic/gin v1.4.0 // indirect
 	github.com/go-gomail/gomail v0.0.0-20160411212932-81ebce5c23df
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/go-xorm/core v0.6.2 // indirect
@@ -30,14 +34,14 @@ require (
 	github.com/json-iterator/go v1.1.6
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/lib/pq v1.1.1 // indirect
-	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
-	github.com/modern-go/reflect2 v1.0.1 // indirect
+	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pkg/errors v0.8.1 // indirect
 	github.com/qianlnk/pgbar v0.0.0-20171216154057-0f21738f04a2
 	github.com/satori/go.uuid v1.2.0
 	github.com/schollz/progressbar/v2 v2.13.2 // indirect
 	github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24 // indirect
 	github.com/stretchr/objx v0.2.0 // indirect
+	github.com/szuecs/gin-glog v1.1.1 // indirect
 	github.com/tealeg/xlsx v1.0.3 // indirect
 	github.com/xormplus/builder v0.0.0-20181220055446-b12ceebee76f // indirect
 	github.com/xormplus/core v0.0.0-20190120064039-da7907271e2f // indirect
@@ -46,6 +50,7 @@ require (
 	golang.org/x/crypto v0.0.0-20190513172903-22d7a77e9e5f // indirect
 	golang.org/x/sys v0.0.0-20190529164535-6a60838ec259 // indirect
 	golang.org/x/text v0.3.2
+	golang.org/x/time v0.0.0-00010101000000-000000000000 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/flosch/pongo2.v3 v3.0.0-20141028000813-5e81b817a0c4 // indirect
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df // indirect

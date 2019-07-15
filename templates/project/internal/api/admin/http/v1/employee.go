@@ -21,7 +21,7 @@ func (self *EmployeeController) Setup() {
 }
 
 func (self *EmployeeController) Find(c *gin.Context) {
-	claims := GetCustomClaims(c)
+	claims := GetEmployeeClaims(c)
 	page, limit := GetPageParams(c)
 	keyword := c.Query("keyword")
 
@@ -57,7 +57,7 @@ func (self *EmployeeController) Save(c *gin.Context) {
 		return
 	}
 
-	claims := GetCustomClaims(c)
+	claims := GetEmployeeClaims(c)
 	employee.OrgTypeId = claims.OrgTypeId
 	employee.OrgId = claims.OrgId
 	employee.OrgName = claims.OrgName

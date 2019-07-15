@@ -24,7 +24,7 @@ func jwtTokenAbort(c *gin.Context, code int, msg string) {
 func AuthCheckRole() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		//根据上下文获取载荷claims 从claims获得role
-		claims := c.MustGet("claims").(*jwt.CustomClaims)
+		claims := c.MustGet("employeeClaims").(*jwt.EmployeeClaims)
 		e := casbins.NewEnforcer()
 		//检查权限
 		res, err := e.EnforceSafe(gconv.String(claims.RoleId), c.Request.URL.Path, c.Request.Method)

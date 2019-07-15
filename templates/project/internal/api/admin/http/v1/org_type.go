@@ -21,7 +21,7 @@ type OrgTypeController struct {
 
 // 查找树形结构的机构类型数据
 func (*OrgTypeController) FindByTree(c *gin.Context) {
-	claims := GetCustomClaims(c)
+	claims := GetEmployeeClaims(c)
 	orgTypes, err := orgTypeService.FindByTree(claims.RoleId)
 	if err != nil {
 		ResponseError(c, err)
@@ -33,7 +33,7 @@ func (*OrgTypeController) FindByTree(c *gin.Context) {
 
 // 查找可供下拉框选择的机构类型数据
 func (*OrgTypeController) FindBySelect(c *gin.Context) {
-	claims := GetCustomClaims(c)
+	claims := GetEmployeeClaims(c)
 	orgTypes, err := orgTypeService.FindBySelect(claims.RoleId)
 	if err != nil {
 		ResponseError(c, err)

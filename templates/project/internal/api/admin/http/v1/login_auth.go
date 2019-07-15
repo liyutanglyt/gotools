@@ -45,7 +45,7 @@ func (AuthController) Login(c *gin.Context) {
 		return
 	}
 
-	tokenStr, exp, err := myJwt.GenToken(employee.Id, employee.Account,
+	tokenStr, exp, err := myJwt.GenEmployeeToken(employee.Id, employee.Account,
 		employee.RoleId, employee.OrgTypeId, employee.OrgId, employee.OrgName, clientId)
 	if err != nil {
 		ResponseError(c, "生成token失败")

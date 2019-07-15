@@ -20,8 +20,8 @@ var (
 	FieldTagTpl        = "`xorm:\"%s(%s) comment('%s')\"`"
 	BaseModelPath      = "../output/%s/internal/model/base/%s.go"
 	BaseServicePath    = "../output/%s/internal/service/base/%s.go"
-	BaseControllerPath = "../output/%s/internal/api/http/v1/%s.go"
-	BaseRoutesPath     = "../output/%s/internal/api/http/v1/routes.go"
+	BaseControllerPath = "../output/%s/internal/api/admin/http/v1/%s.go"
+	BaseRoutesPath     = "../output/%s/internal/api/admin/http/v1/routes.go"
 
 	SkipFields = []string{"OrgTypeId", "OrgTypeName", "Account"}
 	modelDescs = make(map[string]interface{})
@@ -67,6 +67,7 @@ func genGoProjectCodes() {
 	// 生成路由配置代码
 	genRouteCodes(routeContents)
 	genMySQLConfig()
+	genCasbinConfig()
 }
 
 // 新增加模块生成代码
@@ -232,7 +233,7 @@ func formatContent(modelName, content string) string {
 
 // 根据命令行参数获取模板，如果是新建项目，读取的模板不带new_开头，如果是生成新模块，则读取new_开头的模板
 // 比如gotools -newProject helloworld，则读取model.tpl, service.tpl等
-// 如果是gotools -newGenModule，则读取new_model.tpl, new_service.tpl等
+// 如果是gotools -newModule，则读取new_model.tpl, new_service.tpl等
 func getTemplatePath(tplName string) string {
 	templatePath := "../templates/%s%s.tpl"
 	if *NewModule {

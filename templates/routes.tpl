@@ -15,7 +15,7 @@ func InitRouter(r *gin.Engine) {
 	router := r.Group("/v1/admin_api")
 	SetupNoneAuthorized(router)
 
-	router.Use(jwt.JWTAuth())
+	router.Use(jwt.EmployeeJWTAuth())
 	router.Use(casbin.AuthCheckRole())
 	SetupAuthorized(router)
 }

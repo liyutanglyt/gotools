@@ -139,7 +139,7 @@ func GetInt(key string, c *gin.Context) int {
 	return value
 }
 
-func GetCustomClaims(c *gin.Context) (claims *jwt.CustomClaims) {
-	claims = c.Keys["claims"].(*jwt.CustomClaims)
+func GetUserClaims(c *gin.Context) (claims *jwt.UserClaims) {
+	claims = c.Keys["userClaims"].(*jwt.UserClaims)
 	return
 }

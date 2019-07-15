@@ -17,7 +17,7 @@ type RoleController struct {
 
 func (*RoleController) Find(c *gin.Context) {
 	page, limit := GetPageParams(c)
-	claims := GetCustomClaims(c)
+	claims := GetEmployeeClaims(c)
 
 	roles, err := roleService.Find(claims.RoleId, page, limit)
 	if err != nil {
@@ -35,7 +35,7 @@ func (*RoleController) Save(c *gin.Context) {
 		return
 	}
 
-	claims := GetCustomClaims(c)
+	claims := GetEmployeeClaims(c)
 	if claims.RoleId == 1 {
 		role.IsAdmin = 1
 	} else {
