@@ -80,9 +80,15 @@ gotools.exe -newProject hello
 // 启动生成的go程序
 cd gotools/output
 
-cd hello-go/cmd
+// 进入项目根目录
+cd hello-go
 
-go run main.go
+// 下载依赖包
+go mod tidy
+
+// 运行
+cd cmd && go run main.go
+
 
 // 启动生成的前端Vue程序
 cd gotools/output
