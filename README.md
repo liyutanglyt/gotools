@@ -82,6 +82,10 @@ cd gotools/output
 
 cd hello-go/cmd
 
+// 下载依赖包
+go mod tidy
+
+// 运行
 go run main.go
 
 // 启动生成的前端Vue程序
