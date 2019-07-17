@@ -70,10 +70,10 @@ cd gotools/cmd
 go build gotools.go
 
 // MacOS/Linux
-gotools -newProject hello
+./gotools -newProject hello
 
-// Windows
-gotools.exe -newProject hello
+// Windows  windows系统下建议使用git bash命令行工具,下载地址：https://git-scm.com/download/win
+./gotools.exe -newProject hello
 ```
 8. 查看并启动生成的代码
 ```
