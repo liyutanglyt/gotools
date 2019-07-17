@@ -11,11 +11,11 @@ import (
 )
 
 var (
-	ApiJsPath          = "../output/%s/src/api/api.js"
-	BaseVuePagePath    = "../output/%s/src/views/base/%ss.vue"
-	VueRoutePath       = "../output/%s/src/router/routes.js"
-	VuePostcssrcjsPath = "../output/%s/.postcssrc.js"
-	VueBabelrcPath     = "../output/%s/.babelrc"
+	ApiJsPath          = "%s/output/%s/src/api/api.js"
+	BaseVuePagePath    = "%s/output/%s/src/views/base/%ss.vue"
+	VueRoutePath       = "%s/output/%s/src/router/routes.js"
+	VuePostcssrcjsPath = "%s/output/%s/.postcssrc.js"
+	VueBabelrcPath     = "%s/output/%s/.babelrc"
 	Space              = "  "
 )
 
@@ -25,7 +25,7 @@ func CreateVueProject() {
 		return
 	}
 
-	CopyDir("../templates/web", "../output/"+getVueProjectName())
+	CopyDir(getProjectPath() + "/templates/web", getProjectPath() + "/output/"+getVueProjectName())
 	renameProjectName()
 
 	genVueProjectCodes()
@@ -35,7 +35,7 @@ func CreateVueProject() {
 // 生成项目代码
 func genVueProjectCodes() {
 	models := make(map[string]interface{})
-	ReadJSON("../configs/org.json", &models)
+	ReadJSON(getProjectPath()+"/configs/org.json", &models)
 
 	var apiJsContents, vueRouteContents string
 	for modelName := range models {
@@ -60,7 +60,7 @@ func genVueProjectCodes() {
 // 生成模块代码
 func GenVueModuleCodes() {
 	models := make(map[string]interface{})
-	ReadJSON("../configs/new_gen_module.json", &models)
+	ReadJSON(getProjectPath()+"/configs/new_gen_module.json", &models)
 
 	var apiJsContents, vueRouteContents string
 	for modelName := range models {
@@ -257,13 +257,13 @@ func genVueRouteContent(modelName string) string {
 
 func genPostcssrcJs() {
 	fileName := GetVueNewFilePath(VuePostcssrcjsPath, getVueProjectName(), "")
-	content := ReadTemplate("../templates/postcssrc_js.tpl")
+	content := ReadTemplate(getProjectPath()+"/templates/postcssrc_js.tpl")
 	GenCodeFile(fileName, content)
 }
 
 func genBabelrc() {
 	fileName := GetVueNewFilePath(VueBabelrcPath, getVueProjectName(), "")
-	content := ReadTemplate("../templates/babelrc.tpl")
+	content := ReadTemplate(getProjectPath()+"/templates/babelrc.tpl")
 	GenCodeFile(fileName, content)
 }
 
@@ -273,10 +273,10 @@ func GetVueNewFilePath(filePath, projectName, modelName string) string {
 	}
 
 	if strings.TrimSpace(modelName) == "" {
-		return fmt.Sprintf(filePath, projectName)
+		return fmt.Sprintf(filePath, getProjectPath(), projectName)
 	}
 
-	return fmt.Sprintf(filePath, projectName, modelName)
+	return fmt.Sprintf(filePath, getProjectPath(), projectName, modelName)
 }
 
 func getVueProjectName() string {

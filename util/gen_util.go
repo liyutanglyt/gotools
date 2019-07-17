@@ -9,7 +9,6 @@ import (
 	"gotools/pkg/jsonutil"
 	"io/ioutil"
 	"os"
-	"path/filepath"
 	"strings"
 )
 
@@ -40,9 +39,11 @@ func ReadTemplate(filename string) (content string) {
 
 // 生成文件代码
 func GenCodeFile(fileName string, content string) {
+	fileName = strings.Replace(fileName, "\\", "/", -1)
+
 	paths := strings.Split(fileName, "/")
 	paths = paths[0 : len(paths)-1]
-	filepath := filepath.Join(paths...)
+	filepath := strings.Join(paths,"/")
 
 	if err := os.MkdirAll(filepath, os.ModePerm); err != nil {
 		fmt.Printf("MkdirAll filepath err: %s\n", err)

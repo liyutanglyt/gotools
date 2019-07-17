@@ -60,6 +60,26 @@ func CopyDir(srcPath string, destPath string) error {
 	return err
 }
 
+func Mkdir(dest string) {
+	destSplitPathDirs := strings.Split(dest, "/")
+	//检测时候存在目录
+	destSplitPath := ""
+	for index, dir := range destSplitPathDirs {
+		if index < len(destSplitPathDirs)-1 {
+			destSplitPath = destSplitPath + dir + "/"
+			b, _ := pathExists(destSplitPath)
+			if b == false {
+				//fmt.Println("创建目录:" + destSplitPath)
+				//创建目录
+				err := os.Mkdir(destSplitPath, os.ModePerm)
+				if err != nil {
+					fmt.Println(err)
+				}
+			}
+		}
+	}
+}
+
 //生成目录并拷贝文件
 func copyFile(src, dest string) (w int64, err error) {
 	srcFile, err := os.Open(src)

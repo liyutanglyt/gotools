@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"gotools/pkg/gopath"
 
 	"github.com/gogf/gf/g/util/gconv"
 )
@@ -18,10 +19,10 @@ import (
 var (
 	FieldHeaderTpl     = "%s\t%s\t"
 	FieldTagTpl        = "`xorm:\"%s(%s) comment('%s')\"`"
-	BaseModelPath      = "../output/%s/internal/model/base/%s.go"
-	BaseServicePath    = "../output/%s/internal/service/base/%s.go"
-	BaseControllerPath = "../output/%s/internal/api/admin/http/v1/%s.go"
-	BaseRoutesPath     = "../output/%s/internal/api/admin/http/v1/routes.go"
+	BaseModelPath      = "%s/output/%s/internal/model/base/%s.go"
+	BaseServicePath    = "%s/output/%s/internal/service/base/%s.go"
+	BaseControllerPath = "%s/output/%s/internal/api/admin/http/v1/%s.go"
+	BaseRoutesPath     = "%s/output/%s/internal/api/admin/http/v1/routes.go"
 
 	SkipFields = []string{"OrgTypeId", "OrgTypeName", "Account"}
 	modelDescs = make(map[string]interface{})
@@ -37,7 +38,7 @@ func CreateGoProject() {
 		return
 	}
 
-	CopyDir("../templates/project", "../output/"+getGoProjectName())
+	CopyDir(getProjectPath() + "/templates/project", getProjectPath() + "/output/"+getGoProjectName())
 	renameProjectName()
 
 	genGoProjectCodes()
@@ -47,7 +48,7 @@ func CreateGoProject() {
 // 生成项目代码
 func genGoProjectCodes() {
 	models := make(map[string]interface{})
-	ReadJSON("../configs/org.json", &models)
+	ReadJSON(getProjectPath()+"/configs/org.json", &models)
 
 	var routeContents string
 	for modelName := range models {
@@ -151,10 +152,10 @@ func GetGoNewFilePath(filePath, projectName, modelName string) string {
 	}
 
 	if strings.TrimSpace(modelName) == "" {
-		return fmt.Sprintf(filePath, projectName)
+		return fmt.Sprintf(filePath, getProjectPath(), projectName)
 	}
 
-	return fmt.Sprintf(filePath, projectName, modelName)
+	return fmt.Sprintf(filePath, getProjectPath(), projectName, modelName)
 }
 
 // 生成service代码
@@ -166,7 +167,6 @@ func genServiceCodes(modelName string) {
 	content = formatContent(modelName, content)
 
 	fileName := GetGoNewFilePath(BaseServicePath, getGoProjectName(), SnakeString(modelName))
-	//fileName := fmt.Sprintf(BaseServicePath, getGoProjectName(), SnakeString(modelName))
 	GenCodeFile(fileName, content)
 }
 
@@ -179,7 +179,6 @@ func genControllerCodes(modelName string) {
 	content = formatContent(modelName, content)
 
 	fileName := GetGoNewFilePath(BaseControllerPath, getGoProjectName(), SnakeString(modelName))
-	//fileName := fmt.Sprintf(BaseControllerPath, getGoProjectName(), SnakeString(modelName))
 	GenCodeFile(fileName, content)
 }
 
@@ -235,11 +234,11 @@ func formatContent(modelName, content string) string {
 // 比如gotools -newProject helloworld，则读取model.tpl, service.tpl等
 // 如果是gotools -newModule，则读取new_model.tpl, new_service.tpl等
 func getTemplatePath(tplName string) string {
-	templatePath := "../templates/%s%s.tpl"
+	templatePath := "%s/templates/%s%s.tpl"
 	if *NewModule {
-		templatePath = fmt.Sprintf(templatePath, "new_", tplName)
+		templatePath = fmt.Sprintf(templatePath, getProjectPath(), "new_", tplName)
 	} else {
-		templatePath = fmt.Sprintf(templatePath, "", tplName)
+		templatePath = fmt.Sprintf(templatePath, getProjectPath(), "", tplName)
 	}
 
 	return templatePath
@@ -247,7 +246,7 @@ func getTemplatePath(tplName string) string {
 
 // 批量重命名项目文件中的项目名称
 func renameProjectName() {
-	projectPath := fmt.Sprintf("../output/%s", getGoProjectName())
+	projectPath := fmt.Sprintf("%s/output/%s", getProjectPath(), getGoProjectName())
 
 	// 遍历文件夹，获取文件路径
 	paths := make([]string, 0)
@@ -277,4 +276,10 @@ func getGoProjectName() string {
 	}
 
 	return fmt.Sprintf("%s-go", *NewProject)
+}
+
+func getProjectPath() string {
+	currentDir := gopath.GetCurrentDirectory()
+	projectPath := gopath.GetParentDirectory(currentDir)
+	return projectPath
 }
