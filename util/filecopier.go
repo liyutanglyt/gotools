@@ -19,6 +19,7 @@ import (
  * @param destPath		拷贝到的位置: D:/backup/
  */
 func CopyDir(srcPath string, destPath string) error {
+	Mkdir(destPath)
 	//检测目录正确性
 	if srcInfo, err := os.Stat(srcPath); err != nil {
 		fmt.Printf("os.Stat srcPath err: %s\n", srcPath)
