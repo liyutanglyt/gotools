@@ -1,12 +1,12 @@
 # gotools
-1. gotools是一个带角色、权限、用户管理的Go脚手架
+1. gotools一键生成自由灵活配置角色、权限、用户管理脚手架代码的生成工具
 2. gotools可一键生成开箱即用的源码程序，一键生成基础的增删改查前后端代码
-2. 前端使用Vue、ElementUI、vue-element-admin等开源项目
-3. 后端使用gin、xormplus、casbin、gf、jwt等开源项目
+2. 生成的前端代码使用Vue、ElementUI、vue-element-admin等开源项目
+3. 生成的后端代码使用gin、xormplus、casbin、gf、jwt等开源项目
 
-# 权限层级机构
-1. 比如我的系统层级结构是：平台->银行->服务商->商家，我们暂且叫这四个层级为机构类型，如下图：
-![](https://github.com/gopark001/gotools/blob/master/images/1562936179826.jpg)  
+# 多层级权限架构
+1. 例如我的系统层级结构是：平台->银行->服务商->商家，我们暂且叫这四个层级为机构类型，如下图：
+![权限架构](https://images.gitee.com/uploads/images/2019/0718/093322_313ae8bc_88608.jpeg "")
 
 2. 例如现在平台下有10个银行，每个银行有20个服务商，每个服务商有30个商户，并且要求每个银行、服务商、商户都有自己的角色、权限、用户管理
 
@@ -70,10 +70,10 @@ cd gotools/cmd
 go build gotools.go
 
 // MacOS/Linux
-gotools -newProject hello
+./gotools -newProject hello
 
-// Windows
-gotools.exe -newProject hello
+// Windows  windows系统下建议使用git bash命令行工具,下载地址：https://git-scm.com/download/win
+./gotools.exe -newProject hello
 ```
 8. 查看并启动生成的代码
 ```
@@ -98,8 +98,8 @@ cd hello-admin
 npm install && npm run dev
 ```
 9. 初始化超级管理员账号密码为：super_admin/111111
-有疑问可以加我微信：
-<img src="https://github.com/gopark001/gotools/blob/master/images/WechatIMG605.jpeg" width="200" height="200" align=center>
+有疑问可以加我微信：  
+![微信二维码](https://images.gitee.com/uploads/images/2019/0718/094023_81e9896e_88608.png "微信二维码")
 
 
 
