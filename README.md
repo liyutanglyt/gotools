@@ -1,5 +1,5 @@
 # gotools
-1. gotools是一个带角色、权限、用户管理的Go脚手架
+1. gotools是一个带角色、权限、用户管理的Go脚手架生成工具
 2. gotools可一键生成开箱即用的源码程序，一键生成基础的增删改查前后端代码
 2. 前端使用Vue、ElementUI、vue-element-admin等开源项目
 3. 后端使用gin、xormplus、casbin、gf、jwt等开源项目
