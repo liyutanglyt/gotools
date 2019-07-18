@@ -1,5 +1,5 @@
 # gotools
-1. gotools是一个能一键生成自由灵活配置角色、权限、用户管理脚手架代码的生成工具
+1. gotools一键生成自由灵活配置角色、权限、用户管理脚手架代码的生成工具
 2. gotools可一键生成开箱即用的源码程序，一键生成基础的增删改查前后端代码
 2. 生成的前端代码使用Vue、ElementUI、vue-element-admin等开源项目
 3. 生成的后端代码使用gin、xormplus、casbin、gf、jwt等开源项目
