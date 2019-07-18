@@ -2,41 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5184f6a-e6ab-4cbc-8d33-753581a90ea6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../kratos-demo/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../robotclick/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../robotclick/rules/01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../robotclick/rules/main.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/DB/base_dao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/DB/datasource.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/conf/app_conf.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/conf/conf.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/conf/mysql_conf.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/configs/mysql.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/model/model.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/model/student.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/encoding/encode.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/gopath/path.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/httputil/http.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/jsonutil/json.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/mail/mail.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/mapstruct/mapstruct.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/security/aes_crypto.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/security/md5.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/security/sign.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/security/wx_sign.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/socket/client.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/stringutils/strings.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/time/utime/utime.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/time/xtime/xtime.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/utils/error.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/utils/regex_check.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../mygo/src/helloword/pkg/utils/tools.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/casbin.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/casbin.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configs/mysql.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/mysql.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/templates/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/web/src/views/login/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/templates/web/src/views/login/index.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,64 +18,90 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmd/gotools.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/gen_gocode.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="68" column="14" selection-start-line="68" selection-start-column="14" selection-end-line="68" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/gen_config.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="53" column="81" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/go.mod">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/go.sum">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="43" selection-start-line="43" selection-end-line="44" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/project/go.mod">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
+            <state relative-caret-position="522">
               <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/project/go.sum">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/project/internal/service/sys/employee_service.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/project/internal/service/sys/role_menu_service.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="56" selection-start-line="56" selection-end-line="56" />
+            <state relative-caret-position="438">
+              <caret line="267" column="5" selection-start-line="267" selection-start-column="5" selection-end-line="267" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/mysql.toml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/casbin.toml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/org.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="21" column="40" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/org_type.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/web/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/project/internal/server/http/server.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="738">
+              <caret line="41" selection-start-line="41" selection-end-line="41" />
+              <folding>
+                <element signature="e#14#479#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pkg/gopath/path.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1188">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -165,9 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/templates/new_service.tpl" />
-        <option value="$PROJECT_DIR$/templates/new_controller.tpl" />
-        <option value="$PROJECT_DIR$/configs/new_gencode.json" />
         <option value="$PROJECT_DIR$/templates/new_routes.tpl" />
         <option value="$PROJECT_DIR$/configs/new_gen_module.json" />
         <option value="$PROJECT_DIR$/output/eparking-go/internal/model/model.go" />
@@ -216,6 +210,9 @@
         <option value="$PROJECT_DIR$/go.sum" />
         <option value="$PROJECT_DIR$/templates/project/go.mod" />
         <option value="$PROJECT_DIR$/templates/project/go.sum" />
+        <option value="$PROJECT_DIR$/templates/web/index.html" />
+        <option value="$PROJECT_DIR$/templates/web/src/views/login/index.vue" />
+        <option value="$PROJECT_DIR$/templates/web/package.json" />
       </list>
     </option>
   </component>
@@ -231,7 +228,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -242,7 +238,7 @@
             <path>
               <item name="gotools" type="b2602c69:ProjectViewProjectNode" />
               <item name="gotools" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
+              <item name="configs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="gotools" type="b2602c69:ProjectViewProjectNode" />
@@ -253,12 +249,13 @@
               <item name="gotools" type="b2602c69:ProjectViewProjectNode" />
               <item name="gotools" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -329,9 +326,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="16" y="23" width="1400" height="792" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26067746" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26435935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -371,26 +367,8 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/output/gencodes/vuecode/src/views/base/classs.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2801" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/gencodes/vuecode/src/api/api.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/eparking-admin/src/router/routes.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/output/eparking-admin/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/output/eparking-admin/src/router/routes.js" />
+    <entry file="file://$PROJECT_DIR$/output/eparking-admin/src/router/index.js" />
     <entry file="file://$PROJECT_DIR$/util/gen_vuecode.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -398,9 +376,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/application.toml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/application.toml" />
     <entry file="file://$PROJECT_DIR$/configs/new_gen_module.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -417,8 +393,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/configs/org_type.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="5" selection-end-column="1" />
+        <state relative-caret-position="90">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -429,45 +405,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/openapi/http/v1/routes.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/http/v1/base.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/admin/api/http/v1/base.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/http/v1/routes.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/admin/api/http/v1/routes.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding>
-            <element signature="e#64#190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/app/http/v1/base.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/h5/http/v1/base.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/pc/http/v1/base.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/openapi/http/v1/routes.go" />
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/http/v1/base.go" />
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/admin/api/http/v1/base.go" />
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/http/v1/routes.go" />
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/admin/api/http/v1/routes.go" />
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/app/http/v1/base.go" />
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/h5/http/v1/base.go" />
+    <entry file="file://$PROJECT_DIR$/templates/project/internal/open/api/pc/http/v1/base.go" />
     <entry file="file://$PROJECT_DIR$/templates/project/internal/common/middleware/jwt/jwt.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
@@ -513,17 +458,14 @@
         <state relative-caret-position="-442" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/eparking-go/internal/server/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/output/eparking-go/internal/server/http/server.go" />
     <entry file="file://$PROJECT_DIR$/templates/project/internal/server/http/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        <state relative-caret-position="738">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#14#479#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -586,9 +528,7 @@
     <entry file="file://$PROJECT_DIR$/templates/project/configs/mysql.toml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/eparking-go/configs/casbin.toml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/output/eparking-go/configs/casbin.toml" />
     <entry file="file://$PROJECT_DIR$/templates/casbin.toml.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -603,17 +543,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/output/eparking-go/configs/mysql.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/output/eparking-go/configs/mysql.toml" />
     <entry file="file://$PROJECT_DIR$/configs/mysql.toml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        <state relative-caret-position="72">
+          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -671,7 +605,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/project/go.mod">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
+        <state relative-caret-position="522">
           <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
         </state>
       </provider>
@@ -687,6 +621,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/project/cmd/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>

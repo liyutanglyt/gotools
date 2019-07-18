@@ -2,6 +2,6 @@
 host = "127.0.0.1"
 port = 3306
 user = "root"
-pswd = "W2+Wmikvb9XXu4X2n7w="
-dbname = "testdb"
+pswd = "root123456"
+dbname = "hello_go"
 charset = "utf8mb4"
