@@ -1,5 +1,5 @@
 cmd/gotools
 cmd/gotools.exe
-output
+output/*
 go.sum
 templates/project/go.sum
