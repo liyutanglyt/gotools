@@ -13,7 +13,7 @@
       </el-form-item>
     </el-form>
     <!--列表-->
-    <el-table :data="employees" border >
+    <el-table :data="employees" border>
       <el-table-column type="index" align="center"></el-table-column>
       <el-table-column prop="account" label="用户账号" align="center"></el-table-column>
       <el-table-column prop="name" label="用户姓名" align="center"></el-table-column>

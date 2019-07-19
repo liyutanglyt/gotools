@@ -169,7 +169,6 @@ func initSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (er
 		}
 	}
 	return err
-
 }
 
 func UpdateSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (err error) {
