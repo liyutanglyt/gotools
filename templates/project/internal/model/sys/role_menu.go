@@ -5,7 +5,7 @@ import (
 )
 
 type RoleMenu struct {
-	Id        int64
+	Id        int64		`xorm:"pk autoincr"`
 	RoleId    int64
 	MenuId    int64
 	Checked   int

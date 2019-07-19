@@ -2,13 +2,14 @@ package model
 
 import (
 	"fmt"
-	"goadmin/internal/common/DB"
-	"goadmin/internal/common/casbins"
-	"goadmin/internal/common/enum/employee_enum"
-	"goadmin/internal/model/base"
-	"goadmin/internal/model/sys"
-	"goadmin/pkg/security"
+	"hello-go/internal/common/DB"
+	"hello-go/internal/common/casbins"
+	"hello-go/internal/common/enum/employee_enum"
+	"hello-go/internal/model/base"
+	"hello-go/internal/model/sys"
+	"hello-go/pkg/security"
 	"strings"
+	"time"
 
 	"github.com/golang/glog"
 
@@ -26,6 +27,7 @@ func Init() {
 		new(sys.RoleMenu),
 		new(base.ServiceProvider),
 		new(base.Bank),
+		new(base.Shop),
 	); err != nil {
 		panic(err)
 	}
@@ -138,7 +140,36 @@ func initSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (er
 		}
 	}
 
+	//在role_menu表中给超管添加默认记录
+	//判断是否已经存在数据
+	count, err := DB.Where("id = 1").Count(sys.RoleMenu{})
+	if count > 0 {
+		return err
+	}
+
+	roleMenu := new(sys.RoleMenu)
+	roleMenu.Id = 0
+	roleMenu.RoleId = 1
+	roleMenu.MenuId = 3
+	roleMenu.Checked = 1
+	roleMenu.CreatedAt = time.Now()
+	roleMenu.UpdatedAt = time.Now()
+
+	for i := 0; i < 6; i++{
+		roleMenu.MenuId++
+		roleMenu.Id++
+
+		if i ==  2{
+			roleMenu.Id--
+			continue
+		}
+		if _, err = DB.InsertTx(session, roleMenu); err != nil {
+			session.Rollback()
+			return err
+		}
+	}
 	return err
+
 }
 
 func UpdateSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (err error) {
