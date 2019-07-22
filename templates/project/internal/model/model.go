@@ -9,6 +9,7 @@ import (
 	"goadmin/internal/model/sys"
 	"goadmin/pkg/security"
 	"strings"
+	"time"
 
 	"github.com/golang/glog"
 
@@ -26,6 +27,7 @@ func Init() {
 		new(sys.RoleMenu),
 		new(base.ServiceProvider),
 		new(base.Bank),
+		new(base.Shop),
 	); err != nil {
 		panic(err)
 	}
@@ -138,6 +140,52 @@ func initSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (er
 		}
 	}
 
+	//在role_menu表中给超管添加默认记录
+	//判断是否已经存在数据
+	count, err := DB.Where("id = 1").Count(sys.RoleMenu{})
+	if count > 0 {
+		return err
+	}
+
+	sysMenus := []sys.SysMenu{}
+	fmt.Println(apiUrls[0].ApiUrl)
+
+	FindSysMenu:
+	for i := 0; i < len(apiUrls); i++{
+		sysMenu := sys.SysMenu{}
+		has, err := DB.Where("api_urls like ?", "%"+apiUrls[i].ApiUrl+"%").Get(&sysMenu)
+		if err != nil {
+			return err
+		}
+
+		if !has {
+			continue FindSysMenu
+		}
+		//去重
+		for i := 0; i < len(sysMenus); i++{
+			if sysMenu.Id == sysMenus[i].Id {
+					continue FindSysMenu
+			}
+		}
+		sysMenus = append(sysMenus, sysMenu)
+	}
+
+	roleMenu := new(sys.RoleMenu)
+	roleMenu.Id = 0
+	roleMenu.RoleId = 1
+	roleMenu.Checked = 1
+	roleMenu.CreatedAt = time.Now()
+	roleMenu.UpdatedAt = time.Now()
+
+	for i := 0; i < len(sysMenus); i++{
+		roleMenu.MenuId = sysMenus[i].Id
+		roleMenu.Id++
+
+		if _, err = DB.InsertTx(session, roleMenu); err != nil {
+			session.Rollback()
+			return err
+		}
+	}
 	return err
 }
 

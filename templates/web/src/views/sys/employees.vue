@@ -57,6 +57,7 @@ export default {
     return {
       formInline: {},
       employees: [],
+      list:[],
       search: {
         page: 1,
         limit: 10,
@@ -110,10 +111,22 @@ export default {
       })
     },
     fetchEmployees() {
-      console.log(this.search, '22')
+      this.list.length = 0
+      console.log(this.search.keyword, '22')
       findEmployees(this.search).then(result => {
+        var str1 = JSON.parse(localStorage.getItem("webadmin_account"))
+        var my_role_id = str1.user.role_id
+
+        //筛选出role_id大于等于自己的记录，即平级和下级的记录
         this.employees = result.data
+        for (var i = 0; i < result.data.length; i++){
+          if(my_role_id <= this.employees[i].role_id){
+            this.list.push(this.employees[i])
+          }
+        }
+        this.employees = this.list
         this.page.total = result.total
+        
       })
     },
     handleAdd: function () {
