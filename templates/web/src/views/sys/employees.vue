@@ -111,7 +111,8 @@ export default {
       })
     },
     fetchEmployees() {
-      console.log(this.search, '22')
+      this.list.length = 0
+      console.log(this.search.keyword, '22')
       findEmployees(this.search).then(result => {
         var str1 = JSON.parse(localStorage.getItem("webadmin_account"))
         var my_role_id = str1.user.role_id
