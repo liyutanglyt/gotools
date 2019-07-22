@@ -2,12 +2,12 @@ package model
 
 import (
 	"fmt"
-	"test-go/internal/common/DB"
-	"test-go/internal/common/casbins"
-	"test-go/internal/common/enum/employee_enum"
-	"test-go/internal/model/base"
-	"test-go/internal/model/sys"
-	"test-go/pkg/security"
+	"goadmin/internal/common/DB"
+	"goadmin/internal/common/casbins"
+	"goadmin/internal/common/enum/employee_enum"
+	"goadmin/internal/model/base"
+	"goadmin/internal/model/sys"
+	"goadmin/pkg/security"
 	"strings"
 	"time"
 
