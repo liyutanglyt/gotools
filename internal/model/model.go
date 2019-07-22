@@ -297,18 +297,46 @@ func insertBaseMenus(session *xorm.Session, parent *sys.SysMenu) (err error) {
 		childMenus = append(childMenus, &baseQuery)
 
 		// xxx编辑权限
-		baseSave := sys.SysMenu{}
-		baseSave.ParentId = baseMenu.Id
-		baseSave.Name = fmt.Sprintf("%s编辑", orgType.Name)
-		baseSave.Level = "level3"
-		baseSave.Index = 2
-		baseSave.NodeType = "permission"
-		baseSave.OrgTypeIds = getOrgParentIds(orgType)
+		baseReset := sys.SysMenu{}
+		baseReset.ParentId = baseMenu.Id
+		baseReset.Name = fmt.Sprintf("%s编辑", orgType.Name)
+		baseReset.Level = "level3"
+		baseReset.Index = 2
+		baseReset.NodeType = "permission"
+		baseReset.OrgTypeIds = getOrgParentIds(orgType)
 
 		apiUrls = make([]*sys.ApiUrl, 0)
 		apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: fmt.Sprintf("/v1/admin_api/%s/save", orgType.Code)})
-		baseSave.ApiUrls = apiUrls
-		childMenus = append(childMenus, &baseSave)
+		baseReset.ApiUrls = apiUrls
+		childMenus = append(childMenus, &baseReset)
+
+		// xxx编辑权限
+		baseDelete := sys.SysMenu{}
+		baseDelete.ParentId = baseMenu.Id
+		baseDelete.Name = fmt.Sprintf("%s删除", orgType.Name)
+		baseDelete.Level = "level3"
+		baseDelete.Index = 3
+		baseDelete.NodeType = "permission"
+		baseDelete.OrgTypeIds = getOrgParentIds(orgType)
+
+		apiUrls = make([]*sys.ApiUrl, 0)
+		apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: fmt.Sprint("/v1/admin_api/bank/del", orgType.Code)})
+		baseDelete.ApiUrls = apiUrls
+		childMenus = append(childMenus, &baseDelete)
+
+		basePassWordReset := sys.SysMenu{}
+		basePassWordReset.ParentId = baseMenu.Id
+		basePassWordReset.Name = "密码重置"
+		basePassWordReset.Level = "level3"
+		basePassWordReset.Index = 4
+		basePassWordReset.NodeType = "permission"
+		basePassWordReset.OrgTypeIds = getOrgParentIds(orgType)
+
+		apiUrls = make([]*sys.ApiUrl, 0)
+		apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: fmt.Sprint("/v1/admin_api/%s/reset_password",orgType.Code)})
+		basePassWordReset.ApiUrls = apiUrls
+		childMenus = append(childMenus, &basePassWordReset)
+
 		if _, err = DB.InsertTx(session, &childMenus); err != nil {
 			return err
 		}

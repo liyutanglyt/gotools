@@ -103,3 +103,37 @@ func (EmployeeService) SaveTx(session *xorm.Session, employee *sys.Employee) (er
 
 	return
 }
+
+func (self *EmployeeService) ResetPassword(account,password string) (err error) {
+
+	employee:=new(sys.Employee)
+	ok, err := DB.Where("`account`=? ", account).Get(employee)
+	if err != nil {
+		return err
+	}
+	if !ok {
+		return errors.New("无此用户")
+	}
+
+	employee.Password = security.MD5Password(password)
+	_, err = DB.UpdateById(employee.Id, employee)
+
+	return err
+}
+
+func (self *EmployeeService) UpdatePassword(req *sys.PasswordReq) (err error) {
+
+	employee:=new(sys.Employee)
+	ok, err := DB.Where("`account`=? and `password`=?", req.Account, req.PasswordForm.OldPassword).Get(employee)
+	if err != nil {
+		return  err
+	}
+	if !ok {
+		return errors.New("密码错误")
+	}
+
+	employee.Password = security.MD5Password(req.PasswordForm.Password1)
+	_, err = DB.UpdateById(employee.Id, employee)
+
+	return err
+}
