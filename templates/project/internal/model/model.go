@@ -2,12 +2,12 @@ package model
 
 import (
 	"fmt"
-	"hello-go/internal/common/DB"
-	"hello-go/internal/common/casbins"
-	"hello-go/internal/common/enum/employee_enum"
-	"hello-go/internal/model/base"
-	"hello-go/internal/model/sys"
-	"hello-go/pkg/security"
+	"goadmin/internal/common/DB"
+	"goadmin/internal/common/casbins"
+	"goadmin/internal/common/enum/employee_enum"
+	"goadmin/internal/model/base"
+	"goadmin/internal/model/sys"
+	"goadmin/pkg/security"
 	"strings"
 	"time"
 
@@ -147,22 +147,40 @@ func initSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (er
 		return err
 	}
 
+	sysMenus := []sys.SysMenu{}
+	fmt.Println(apiUrls[0].ApiUrl)
+
+	FindSysMenu:
+	for i := 0; i < len(apiUrls); i++{
+		sysMenu := sys.SysMenu{}
+		has, err := DB.Where("api_urls like ?", "%"+apiUrls[i].ApiUrl+"%").Get(&sysMenu)
+		if err != nil {
+			return err
+		}
+
+		if !has {
+			return
+		}
+		//去重
+		for i := 0; i < len(sysMenus); i++{
+			if sysMenu.Id == sysMenus[i].Id {
+					continue FindSysMenu
+			}
+		}
+		sysMenus = append(sysMenus, sysMenu)
+	}
+
 	roleMenu := new(sys.RoleMenu)
 	roleMenu.Id = 0
 	roleMenu.RoleId = 1
-	roleMenu.MenuId = 3
 	roleMenu.Checked = 1
 	roleMenu.CreatedAt = time.Now()
 	roleMenu.UpdatedAt = time.Now()
 
-	for i := 0; i < 6; i++{
-		roleMenu.MenuId++
+	for i := 0; i < 5; i++{
+		roleMenu.MenuId = sysMenus[i].Id
 		roleMenu.Id++
 
-		if i ==  2{
-			roleMenu.Id--
-			continue
-		}
 		if _, err = DB.InsertTx(session, roleMenu); err != nil {
 			session.Rollback()
 			return err
