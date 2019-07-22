@@ -2,12 +2,12 @@ package model
 
 import (
 	"fmt"
-	"goadmin/internal/common/DB"
-	"goadmin/internal/common/casbins"
-	"goadmin/internal/common/enum/employee_enum"
-	"goadmin/internal/model/base"
-	"goadmin/internal/model/sys"
-	"goadmin/pkg/security"
+	"test-go/internal/common/DB"
+	"test-go/internal/common/casbins"
+	"test-go/internal/common/enum/employee_enum"
+	"test-go/internal/model/base"
+	"test-go/internal/model/sys"
+	"test-go/pkg/security"
 	"strings"
 	"time"
 
@@ -159,7 +159,7 @@ func initSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (er
 		}
 
 		if !has {
-			return
+			continue FindSysMenu
 		}
 		//去重
 		for i := 0; i < len(sysMenus); i++{
@@ -177,7 +177,7 @@ func initSuperAdminPermsission(session *xorm.Session, apiUrls []*sys.ApiUrl) (er
 	roleMenu.CreatedAt = time.Now()
 	roleMenu.UpdatedAt = time.Now()
 
-	for i := 0; i < 5; i++{
+	for i := 0; i < len(sysMenus); i++{
 		roleMenu.MenuId = sysMenus[i].Id
 		roleMenu.Id++
 
