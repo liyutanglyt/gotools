@@ -219,6 +219,7 @@ func insertEmployeeMenus(session *xorm.Session, parent *sys.SysMenu) (err error)
 	apiUrls := make([]*sys.ApiUrl, 0)
 	apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: "/v1/admin_api/employee/query"})
 	apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: "/v1/admin_api/employee/get"})
+	apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: "/v1/admin_api/employee/update_password"})
 	employeeQuery.ApiUrls = apiUrls
 	employeeMenus = append(employeeMenus, &employeeQuery)
 
@@ -320,7 +321,7 @@ func insertBaseMenus(session *xorm.Session, parent *sys.SysMenu) (err error) {
 		baseDelete.OrgTypeIds = getOrgParentIds(orgType)
 
 		apiUrls = make([]*sys.ApiUrl, 0)
-		apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: fmt.Sprint("/v1/admin_api/bank/del", orgType.Code)})
+		apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: fmt.Sprint("/v1/admin_api/%s/del", orgType.Code)})
 		baseDelete.ApiUrls = apiUrls
 		childMenus = append(childMenus, &baseDelete)
 

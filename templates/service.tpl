@@ -80,14 +80,7 @@ func (*${modelName}Service) Save(req *base.${modelName}Req) (err error) {
 
 func (*${modelName}Service) Delete(id int64) (err error) {
 
-	var count int64
-	count, err = DB.Where("org_id = ?", id).Count(&base.ServiceProvider{})
-	if err != nil {
-		return
-	}
-	if count>0 {
-		return errors.New("先删除下面的商户")
-	}
+    ${deleteStatement}
 
 	${lowerModelName} := new(base.${modelName})
 	_, err = DB.DeleteById(id, ${lowerModelName})
