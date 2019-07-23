@@ -25,9 +25,6 @@ func Init() {
 		new(sys.OrgType),
 		new(sys.SysMenu),
 		new(sys.RoleMenu),
-		new(base.ServiceProvider),
-		new(base.Bank),
-		new(base.Shop),
 	); err != nil {
 		panic(err)
 	}
