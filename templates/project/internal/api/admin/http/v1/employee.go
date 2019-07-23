@@ -73,7 +73,6 @@ func (self *EmployeeController) Save(c *gin.Context) {
 
 type EmployeeReq struct {
 	account string
-	password string
 }
 
 func (self *EmployeeController) ResetPassword(c *gin.Context) {
@@ -84,7 +83,7 @@ func (self *EmployeeController) ResetPassword(c *gin.Context) {
 		return
 	}
 
-	if err := employeeService.ResetPassword(employeeReq.account,employeeReq.password); err != nil {
+	if err := employeeService.ResetPassword(employeeReq.account); err != nil {
 		ResponseError(c, err)
 		return
 	}

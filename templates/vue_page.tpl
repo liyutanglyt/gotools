@@ -162,7 +162,7 @@ export default {
         cancelButtonText: "取消",
         type: "warning"
       }).then(() => {
-        resetPasswordEmployee({account: row.account,password:"111111"}).then(
+        resetPasswordEmployee({account: row.account}).then(
           res => {
             if (res.code == 0) {
               this.$message.success("已重置密码")
