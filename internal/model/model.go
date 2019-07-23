@@ -184,6 +184,20 @@ func insertRoleMenus(session *xorm.Session, parent *sys.SysMenu) (err error) {
 	apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: "/v1/admin_api/role/save"})
 	roleSave.ApiUrls = apiUrls
 	roleMenus = append(roleMenus, &roleSave)
+
+	// 角色删除权限
+	roleDelete := sys.SysMenu{}
+	roleDelete.ParentId = roleMenu.Id
+	roleDelete.Name = "角色删除"
+	roleDelete.Level = "level3"
+	roleDelete.Index = 2
+	roleDelete.NodeType = "permission"
+	roleDelete.OrgTypeIds = parent.OrgTypeIds
+
+	apiUrls = make([]*sys.ApiUrl, 0)
+	apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: "/v1/admin_api/role/del"})
+	roleDelete.ApiUrls = apiUrls
+	roleMenus = append(roleMenus, &roleDelete)
 	if _, err = DB.InsertTx(session, &roleMenus); err != nil {
 		return err
 	}
