@@ -89,6 +89,7 @@ export default {
       },
       form: {},
       org_types: [],
+      selectVal:0,
       dialog: {
         show: false,
         title: ""
@@ -121,9 +122,14 @@ export default {
       this.$refs.form.clearValidate()
     },
     handleAdd() {
+    for (var i=0;i<this.org_types.length;i++){
+        if ("${orgTypeName}"===this.org_types[i].name){
+        this.selectVal=i+1
+        }
+     }
       this.dialog.show = true
       this.dialog.title = "新增"
-      this.form = {org_type_id:2}
+      this.form = {org_type_id:this.selectVal}
     },
     handleEdit(item) {
       this.form = _.cloneDeep(item)

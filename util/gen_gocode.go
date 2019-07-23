@@ -67,21 +67,20 @@ func genGoProjectCodes() {
 			continue
 		}
 
-		var index int64 = -1
+		var modelNameId int64 = -1
 		var nextName string
-		for i := 0; i < len(modelsOrgType); i++ {
-			if modelsOrgType[i].Code == modelName {
-				index = modelsOrgType[i].Id
+		for _, v := range modelsOrgType {
+			if v.Code == modelName {
+				modelNameId = v.Id
 				break
 			}
 		}
-		for j := 0; j < len(modelsOrgType); j++ {
-			if modelsOrgType[j].Parent_id == index {
-				nextName = modelsOrgType[j].Code
+		for _, v := range modelsOrgType {
+			if v.Parent_id == modelNameId {
+				nextName = v.Code
 				break
 			}
 		}
-
 		fields := models[modelName].(map[string]interface{})
 		genModelCodes(modelName, fields)
 		genServiceCodes(modelName, nextName)
@@ -120,17 +119,17 @@ func genGoModuleCodes() {
 			continue
 		}
 
-		var index int64 = -1
+		var modelNameId int64 = -1
 		var nextName string
-		for i := 0; i < len(modelsOrgType); i++ {
-			if modelsOrgType[i].Name == modelName {
-				index = modelsOrgType[i].Id
+		for _, v := range modelsOrgType {
+			if v.Code == modelName {
+				modelNameId = v.Id
 				break
 			}
 		}
-		for j := 0; j < len(modelsOrgType); j++ {
-			if modelsOrgType[j].Parent_id == index {
-				nextName = modelsOrgType[j].Code
+		for _, v := range modelsOrgType {
+			if v.Parent_id == modelNameId {
+				nextName = v.Code
 				break
 			}
 		}
@@ -271,6 +270,25 @@ func formatContent(modelName, content string) string {
 	content = strings.Replace(content, "${modelName}", modelName, -1)
 	content = strings.Replace(content, "${lowerModelName}", lowerModelName, -1)
 	content = strings.Replace(content, "${snakeModelName}", snakeModelName, -1)
+
+	return content
+}
+
+func formatContentName(modelName, content string) string {
+	snakeModelName := SnakeString(modelName)
+
+	var modelsOrgType []Org
+	ReadJSON("../configs/org_type.json", &modelsOrgType)
+
+	var orgTypeName string
+	for _, v := range modelsOrgType {
+		if v.Code == snakeModelName {
+			orgTypeName = v.Name
+			break
+		}
+	}
+
+	content = strings.Replace(content, "${orgTypeName}", orgTypeName, -1)
 
 	return content
 }
