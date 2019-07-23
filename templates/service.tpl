@@ -5,7 +5,6 @@ import (
 	"${project}/internal/model/base"
 	"${project}/internal/model/dto"
 	"${project}/internal/model/sys"
-
 	"github.com/jinzhu/copier"
 	${errors}
 )
@@ -79,9 +78,7 @@ func (*${modelName}Service) Save(req *base.${modelName}Req) (err error) {
 }
 
 func (*${modelName}Service) Delete(id int64) (err error) {
-
     ${deleteStatement}
-
 	${lowerModelName} := new(base.${modelName})
 	_, err = DB.DeleteById(id, ${lowerModelName})
 	return
