@@ -5,7 +5,6 @@ import (
 	"goadmin/internal/common/DB"
 	"goadmin/internal/common/casbins"
 	"goadmin/internal/common/enum/employee_enum"
-	"goadmin/internal/model/base"
 	"goadmin/internal/model/sys"
 	"goadmin/pkg/security"
 	"strings"
