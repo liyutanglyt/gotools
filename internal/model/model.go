@@ -312,18 +312,18 @@ func insertBaseMenus(session *xorm.Session, parent *sys.SysMenu) (err error) {
 		childMenus = append(childMenus, &baseQuery)
 
 		// xxx编辑权限
-		baseReset := sys.SysMenu{}
-		baseReset.ParentId = baseMenu.Id
-		baseReset.Name = fmt.Sprintf("%s编辑", orgType.Name)
-		baseReset.Level = "level3"
-		baseReset.Index = 2
-		baseReset.NodeType = "permission"
-		baseReset.OrgTypeIds = getOrgParentIds(orgType)
+		baseSave := sys.SysMenu{}
+		baseSave.ParentId = baseMenu.Id
+		baseSave.Name = fmt.Sprintf("%s编辑", orgType.Name)
+		baseSave.Level = "level3"
+		baseSave.Index = 2
+		baseSave.NodeType = "permission"
+		baseSave.OrgTypeIds = getOrgParentIds(orgType)
 
 		apiUrls = make([]*sys.ApiUrl, 0)
 		apiUrls = append(apiUrls, &sys.ApiUrl{ApiUrl: fmt.Sprintf("/v1/admin_api/%s/save", orgType.Code)})
-		baseReset.ApiUrls = apiUrls
-		childMenus = append(childMenus, &baseReset)
+		baseSave.ApiUrls = apiUrls
+		childMenus = append(childMenus, &baseSave)
 
 		// xxx编辑权限
 		baseDelete := sys.SysMenu{}
