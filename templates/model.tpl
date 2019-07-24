@@ -11,6 +11,7 @@ type ${modelName} struct {
 	${modelFields}
 	OrgTypeId    int64     `xorm:"comment('所属组织类型ID')"`
 	OrgTypeName  string    `xorm:"varchar(40) comment('所属组织类型名称')"`
+	OrgId        int64     `xorm:"comment('上一级机构ID')"`
 	Account      string    `xorm:"varchar(40) comment('管理员账号')"`
 	CreatedAt    time.Time `xorm:"created" json:"created_at"`
 	UpdatedAt    time.Time `xorm:"updated" json:"updated_at"`

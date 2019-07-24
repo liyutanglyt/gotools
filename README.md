@@ -65,18 +65,14 @@
 ```
 7. 创建hello项目
 ```
-cd gotools
+cd gotools/cmd
 
-// 更新依赖
-go mod tidy
+go build gotools.go
 
-// 编译
-cd cmd && go build gotools.go
-
-// 创建hello项目 MacOS/Linux
+// MacOS/Linux
 ./gotools -newProject hello
 
-// 创建hello项目 Windows  windows系统下建议使用git bash命令行工具,下载地址：https://git-scm.com/download/win
+// Windows  windows系统下建议使用git bash命令行工具,下载地址：https://git-scm.com/download/win
 ./gotools.exe -newProject hello
 ```
 8. 查看并启动生成的代码
