@@ -12,7 +12,7 @@ import (
 
 type ${modelName}Service struct{}
 
-func (*${modelName}Service) Find(page, limit int, parentOrgId int) (pages *dto.Pages, err error) {
+func (*${modelName}Service) Find(page, limit int, parentOrgId int64) (pages *dto.Pages, err error) {
 	var total int64
 	total, err = DB.Count(&base.${modelName}{})
 	if err != nil {
