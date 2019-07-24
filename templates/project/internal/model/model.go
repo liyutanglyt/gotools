@@ -5,7 +5,6 @@ import (
 	"goadmin/internal/common/DB"
 	"goadmin/internal/common/casbins"
 	"goadmin/internal/common/enum/employee_enum"
-	"goadmin/internal/model/base"
 	"goadmin/internal/model/sys"
 	"goadmin/pkg/security"
 	"strings"
@@ -24,8 +23,8 @@ func Init() {
 		new(sys.OrgType),
 		new(sys.SysMenu),
 		new(sys.RoleMenu),
-		new(base.ServiceProvider),
-		new(base.Bank),
+		//new(base.ServiceProvider),
+		//new(base.Bank),
 	); err != nil {
 		panic(err)
 	}

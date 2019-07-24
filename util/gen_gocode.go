@@ -7,13 +7,13 @@ package util
 import (
 	"flag"
 	"fmt"
+	"github.com/gogf/gf/g/util/gconv"
+	"gotools/internal/model/sys"
+	"gotools/pkg/gopath"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
-	"gotools/pkg/gopath"
-
-	"github.com/gogf/gf/g/util/gconv"
 )
 
 var (
@@ -38,7 +38,7 @@ func CreateGoProject() {
 		return
 	}
 
-	CopyDir(getProjectPath() + "/templates/project", getProjectPath() + "/output/"+getGoProjectName())
+	CopyDir(getProjectPath()+"/templates/project", getProjectPath()+"/output/"+getGoProjectName())
 	renameProjectName()
 
 	genGoProjectCodes()
@@ -50,6 +50,9 @@ func genGoProjectCodes() {
 	models := make(map[string]interface{})
 	ReadJSON(getProjectPath()+"/configs/org.json", &models)
 
+	var modelsOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
+
 	var routeContents string
 	for modelName := range models {
 		if modelName == "desc" {
@@ -57,9 +60,23 @@ func genGoProjectCodes() {
 			continue
 		}
 
+		var modelNameId int64 = -1
+		var nextName string
+		for _, v := range modelsOrgTypes {
+			if v.Code == modelName {
+				modelNameId = v.Id
+				break
+			}
+		}
+		for _, v := range modelsOrgTypes {
+			if v.ParentId == modelNameId {
+				nextName = v.Code
+				break
+			}
+		}
 		fields := models[modelName].(map[string]interface{})
 		genModelCodes(modelName, fields)
-		genServiceCodes(modelName)
+		genServiceCodes(modelName, nextName)
 		genControllerCodes(modelName)
 
 		routeContents += genRouteContent(modelName)
@@ -85,6 +102,9 @@ func genGoModuleCodes() {
 	models := make(map[string]interface{})
 	ReadJSON("../configs/new_gen_module.json", &models)
 
+	var modelsOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
+
 	var routeContents string
 	for modelName := range models {
 		if modelName == "desc" {
@@ -92,9 +112,24 @@ func genGoModuleCodes() {
 			continue
 		}
 
+		var modelNameId int64 = -1
+		var nextName string
+		for _, v := range modelsOrgTypes {
+			if v.Code == modelName {
+				modelNameId = v.Id
+				break
+			}
+		}
+		for _, v := range modelsOrgTypes {
+			if v.ParentId == modelNameId {
+				nextName = v.Code
+				break
+			}
+		}
+
 		fields := models[modelName].(map[string]interface{})
 		genModelCodes(modelName, fields)
-		genServiceCodes(modelName)
+		genServiceCodes(modelName, nextName)
 		genControllerCodes(modelName)
 
 		routeContents += genRouteContent(modelName)
@@ -159,12 +194,14 @@ func GetGoNewFilePath(filePath, projectName, modelName string) string {
 }
 
 // 生成service代码
-func genServiceCodes(modelName string) {
+func genServiceCodes(modelName, nextName string) {
 	modelName = CamelString(modelName)
+	nextName = CamelString(nextName)
 	templatePath := getTemplatePath("service")
 
 	content := ReadTemplate(templatePath)
 	content = formatContent(modelName, content)
+	content = formatContentDel(nextName, content)
 
 	fileName := GetGoNewFilePath(BaseServicePath, getGoProjectName(), SnakeString(modelName))
 	GenCodeFile(fileName, content)
@@ -226,6 +263,40 @@ func formatContent(modelName, content string) string {
 	content = strings.Replace(content, "${modelName}", modelName, -1)
 	content = strings.Replace(content, "${lowerModelName}", lowerModelName, -1)
 	content = strings.Replace(content, "${snakeModelName}", snakeModelName, -1)
+
+	return content
+}
+
+func formatContentName(modelName, content string) string {
+	snakeModelName := SnakeString(modelName)
+
+	var modelsOrgType []sys.Org
+	ReadJSON("../configs/org_type.json", &modelsOrgType)
+
+	var orgTypeName string
+	for _, v := range modelsOrgType {
+		if v.Code == snakeModelName {
+			orgTypeName = v.Name
+			break
+		}
+	}
+
+	content = strings.Replace(content, "${orgTypeName}", orgTypeName, -1)
+
+	return content
+}
+func formatContentDel(nextName, content string) string {
+
+	deleteStatement := fmt.Sprintf("	var count int64\ncount, err = DB.Where(\"org_id = ?\", id).Count(&base.%s{})\n"+
+		"if err != nil {\nreturn\n}\nif count>0 {\nreturn errors.New(\"先删除下一级用户\")\n}", nextName)
+
+	if nextName != "" {
+		content = strings.Replace(content, "${errors}", "\"errors\"", -1)
+		content = strings.Replace(content, "${deleteStatement}", deleteStatement, -1)
+		return content
+	}
+	content = strings.Replace(content, "${errors}", "", -1)
+	content = strings.Replace(content, "${deleteStatement}", nextName, -1)
 
 	return content
 }

@@ -9,6 +9,7 @@ import (
 	service "${project}/internal/service/base"
 
 	"github.com/gin-gonic/gin"
+	"strconv"
 )
 
 var (
@@ -46,7 +47,20 @@ func (*${modelName}Controller) Save(c *gin.Context) {
 	ResponseOK(c, "")
 }
 
+func (*${modelName}Controller) Delete(c *gin.Context) {
+
+	id:=c.Query("id")
+	Id, _ := strconv.ParseInt(id, 10, 64)
+	if err := ${lowerModelName}Service.Delete(Id); err != nil {
+		ResponseError(c, err)
+		return
+	}
+
+	ResponseOK(c, "")
+}
+
 func (self *${modelName}Controller) Setup() {
 	self.Router.GET("/${snakeModelName}/query", self.Find)
 	self.Router.POST("/${snakeModelName}/save", self.Save)
+	self.Router.GET("/${snakeModelName}/del", self.Delete)
 }
