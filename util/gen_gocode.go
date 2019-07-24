@@ -7,6 +7,7 @@ package util
 import (
 	"flag"
 	"fmt"
+	"gotools/internal/model/sys"
 	"gotools/pkg/gopath"
 	"io/ioutil"
 	"os"
@@ -46,21 +47,14 @@ func CreateGoProject() {
 	RunProgressBar("后端代码生成:", 50)
 }
 
-type Org struct {
-	Id        int64  `json:"id"`
-	Parent_id int64  `json:"parent_id"`
-	Name      string `json:"name"`
-	Code      string `json:"code"`
-}
-
 // 生成项目代码
 func genGoProjectCodes() {
 	models := make(map[string]interface{})
 	ReadJSON(getProjectPath()+"/configs/org.json", &models)
 
 	var routeContents, newModelContents string
-	var modelsOrgType []Org
-	ReadJSON("../configs/org_type.json", &modelsOrgType)
+	var modelsOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
 
 	for modelName := range models {
 		if modelName == "desc" {
@@ -70,14 +64,14 @@ func genGoProjectCodes() {
 
 		var modelNameId int64 = -1
 		var nextName string
-		for _, v := range modelsOrgType {
+		for _, v := range modelsOrgTypes {
 			if v.Code == modelName {
 				modelNameId = v.Id
 				break
 			}
 		}
-		for _, v := range modelsOrgType {
-			if v.Parent_id == modelNameId {
+		for _, v := range modelsOrgTypes {
+			if v.ParentId == modelNameId {
 				nextName = v.Code
 				break
 			}
@@ -112,8 +106,8 @@ func genGoModuleCodes() {
 	models := make(map[string]interface{})
 	ReadJSON("../configs/new_gen_module.json", &models)
 
-	var modelsOrgType []Org
-	ReadJSON("../configs/org_type.json", &modelsOrgType)
+	var modelsOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
 
 	var routeContents string
 	for modelName := range models {
@@ -124,14 +118,14 @@ func genGoModuleCodes() {
 
 		var modelNameId int64 = -1
 		var nextName string
-		for _, v := range modelsOrgType {
+		for _, v := range modelsOrgTypes {
 			if v.Code == modelName {
 				modelNameId = v.Id
 				break
 			}
 		}
-		for _, v := range modelsOrgType {
-			if v.Parent_id == modelNameId {
+		for _, v := range modelsOrgTypes {
+			if v.ParentId == modelNameId {
 				nextName = v.Code
 				break
 			}
@@ -299,11 +293,11 @@ func formatContent(modelName, content string) string {
 func formatContentName(modelName, content string) string {
 	snakeModelName := SnakeString(modelName)
 
-	var modelsOrgType []Org
-	ReadJSON("../configs/org_type.json", &modelsOrgType)
+	var modelsOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
 
 	var orgTypeName string
-	for _, v := range modelsOrgType {
+	for _, v := range modelsOrgTypes {
 		if v.Code == snakeModelName {
 			orgTypeName = v.Name
 			break

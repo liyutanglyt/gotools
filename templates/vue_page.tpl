@@ -124,7 +124,7 @@ export default {
     handleAdd() {
     for (var i=0;i<this.org_types.length;i++){
         if ("${orgTypeName}"===this.org_types[i].name){
-        this.selectVal=i+1
+        this.selectVal=this.org_types[i].id
         }
      }
       this.dialog.show = true

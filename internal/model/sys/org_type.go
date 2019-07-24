@@ -23,6 +23,13 @@ type OrgType struct {
 	DeletedAt time.Time  `xorm:"deleted"`
 }
 
+type Org struct {
+	Id       int64  `json:"id"`
+	ParentId int64  `json:"parent_id"`
+	Name     string `json:"name"`
+	Code     string `json:"code"`
+}
+
 func (*OrgType) Init() {
 	count, err := DB.Where("id = 1").Count(&OrgType{})
 	if err != nil {
