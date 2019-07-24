@@ -108,25 +108,28 @@ export default {
   },
   methods: {
     fetch${modelName}s() {
-      find${modelName}s(this.search).then(result => {
+      var user = LocalAccount.getUserInfo()
+      this.form.parent_org_id = user.OrgId
+      this.form.search = this.search
+      find${modelName}s(this.form).then(result => {
         this.${lowerModelName}s = result.data
         this.page.total = result.total
       })
     },
     fetchOrgTypes() {
-        findOrgTypesSelect().then(result => {
-            this.org_types = result.data
-        })
+      findOrgTypesSelect().then(result => {
+        this.org_types = result.data
+      })
     },
     closeDialog() {
       this.$refs.form.clearValidate()
     },
     handleAdd() {
-    for (var i=0;i<this.org_types.length;i++){
+      for (var i=0;i<this.org_types.length;i++){
         if ("${orgTypeName}"===this.org_types[i].name){
-        this.selectVal=i+1
+          this.selectVal=i+1
         }
-     }
+      }
       this.dialog.show = true
       this.dialog.title = "新增"
       this.form = {org_type_id:this.selectVal}
@@ -139,9 +142,10 @@ export default {
     handleSubmit() {
       this.$refs.form.validate(valid => {
         if (valid) {
-           let org_type = _.find(this.org_types, {id: this.form.org_type_id})
-           if (!org_type) return
-
+          let org_type = _.find(this.org_types, {id: this.form.org_type_id})
+          var user = LocalAccount.getUserInfo()
+          this.form.parent_org_id = user.OrgId
+          if (!org_type) return
           this.form.org_type_name = org_type.name
           save${modelName}(this.form).then(res => {
             if (res.code == 0) {
