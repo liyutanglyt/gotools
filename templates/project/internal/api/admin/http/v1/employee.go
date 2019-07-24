@@ -71,19 +71,15 @@ func (self *EmployeeController) Save(c *gin.Context) {
 	ResponseOK(c, "")
 }
 
-type EmployeeReq struct {
-	account string
-}
-
 func (self *EmployeeController) ResetPassword(c *gin.Context) {
 
-	employeeReq := new(EmployeeReq)
+	employeeReq := new(sys.EmployeeReq)
 	if err := BindJSON(c, employeeReq); err != nil {
 		ResponseError(c, err)
 		return
 	}
 
-	if err := employeeService.ResetPassword(employeeReq.account); err != nil {
+	if err := employeeService.ResetPassword(employeeReq.Account); err != nil {
 		ResponseError(c, err)
 		return
 	}
