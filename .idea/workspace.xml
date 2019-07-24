@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5184f6a-e6ab-4cbc-8d33-753581a90ea6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/casbin.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/casbin.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configs/mysql.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/mysql.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/controller.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/controller.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/model.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/model.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/service.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/service.tpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/vue_page.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vue_page.tpl" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/vue_page.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2835">
-              <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
+            <state relative-caret-position="240">
+              <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -37,7 +31,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/controller.tpl">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
@@ -47,13 +41,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/gen_vuecode.go">
+        <entry file="file://$PROJECT_DIR$/templates/model.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2322">
-              <caret line="90" column="21" selection-start-line="90" selection-start-column="21" selection-end-line="90" selection-end-column="21" />
-              <folding>
-                <element signature="e#66#105#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="393">
+              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -204,14 +195,12 @@
         <option value="$PROJECT_DIR$/templates/project/go.sum" />
         <option value="$PROJECT_DIR$/templates/new_controller.tpl" />
         <option value="$PROJECT_DIR$/templates/new_service.tpl" />
-        <option value="$PROJECT_DIR$/templates/model.tpl" />
         <option value="$PROJECT_DIR$/templates/service.tpl" />
         <option value="$PROJECT_DIR$/templates/web/src/views/layout/components/Navbar.vue" />
         <option value="$PROJECT_DIR$/templates/project/internal/model/sys/employee.go" />
         <option value="$PROJECT_DIR$/templates/project/internal/api/admin/http/v1/role.go" />
         <option value="$PROJECT_DIR$/util/gen_vuecode.go" />
         <option value="$PROJECT_DIR$/templates/project/internal/model/model.go" />
-        <option value="$PROJECT_DIR$/templates/vue_page.tpl" />
         <option value="$PROJECT_DIR$/templates/project/internal/service/sys/employee_service.go" />
         <option value="$PROJECT_DIR$/templates/project/internal/api/admin/http/v1/employee.go" />
         <option value="$PROJECT_DIR$/internal/model/model.go" />
@@ -222,14 +211,16 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/util/gen_gocode.go" />
         <option value="$PROJECT_DIR$/templates/controller.tpl" />
+        <option value="$PROJECT_DIR$/templates/model.tpl" />
+        <option value="$PROJECT_DIR$/templates/vue_page.tpl" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="27" />
-    <option name="y" value="96" />
-    <option name="width" value="1401" />
-    <option name="height" value="777" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="867" />
+    <option name="y" value="147" />
+    <option name="width" value="1400" />
+    <option name="height" value="781" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -382,10 +373,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="867" y="147" width="1400" height="781" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26705757" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3738806" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -580,13 +571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/model.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmd/gotools.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
@@ -642,13 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2140">
           <caret line="35" column="20" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/vue_page.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2835">
-          <caret line="105" column="24" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -718,6 +695,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/model.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/vue_page.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="111" column="13" selection-start-line="111" selection-start-column="13" selection-end-line="111" selection-end-column="13" />
         </state>
       </provider>
     </entry>

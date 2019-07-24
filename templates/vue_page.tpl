@@ -108,7 +108,7 @@ export default {
   },
   methods: {
     fetch${modelName}s() {
-      var user = LocalAccount.getUserInfo()
+	  var user = LocalAccount.getUserInfo()
 	  this.form.parent_org_id = user.OrgId
 	  this.form.search = this.search
 	  find${modelName}s(this.form).then(result => {
