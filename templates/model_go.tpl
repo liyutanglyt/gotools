@@ -2,20 +2,13 @@ package model
 
 import (
 	"fmt"
-<<<<<<< HEAD:templates/model_go.tpl
 	"${project}/internal/common/DB"
 	"${project}/internal/common/casbins"
 	"${project}/internal/common/enum/employee_enum"
 	"${project}/internal/model/base"
 	"${project}/internal/model/sys"
 	"${project}/pkg/security"
-=======
-	"goadmin/internal/common/DB"
-	"goadmin/internal/common/casbins"
-	"goadmin/internal/common/enum/employee_enum"
-	"goadmin/internal/model/sys"
-	"goadmin/pkg/security"
->>>>>>> cd68f6bb8145f7b0dbdc0161f4331a570cd0bc9c:templates/project/internal/model/model.go
+
 	"strings"
 	"time"
 

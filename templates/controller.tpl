@@ -22,8 +22,8 @@ type ${modelName}Controller struct {
 
 func (*${modelName}Controller) Find(c *gin.Context) {
 	page, limit := GetPageParams(c)
-
-	${lowerModelName}s, err := ${lowerModelName}Service.Find(page, limit)
+	parentId, _ := strconv.Atoi(c.Query("parent_id"))
+	${lowerModelName}s, err := ${lowerModelName}Service.Find(page, limit, parentId)
 	if err != nil {
 		ResponseError(c, err)
 		return
