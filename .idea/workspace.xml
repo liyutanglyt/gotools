@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5184f6a-e6ab-4cbc-8d33-753581a90ea6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/casbin.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/casbin.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/mysql.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/mysql.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/model/sys/org_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/model/sys/org_type.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/internal/api/admin/http/v1/employee.go" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/internal/api/admin/http/v1/employee.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/project/internal/model/sys/employee.go" beforeDir="false" afterPath="$PROJECT_DIR$/templates/project/internal/model/sys/employee.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/vue_page.tpl" beforeDir="false" afterPath="$PROJECT_DIR$/templates/vue_page.tpl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/gen_gocode.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/gen_gocode.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/configs/casbin.toml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <state relative-caret-position="76">
+              <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -78,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configs/mysql.toml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+            <state relative-caret-position="95">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -93,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/configs/org.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
@@ -216,8 +208,8 @@
         <option value="$PROJECT_DIR$/templates/vue_page.tpl" />
         <option value="$PROJECT_DIR$/internal/model/sys/org_type.go" />
         <option value="$PROJECT_DIR$/util/gen_gocode.go" />
-        <option value="$PROJECT_DIR$/configs/casbin.toml" />
         <option value="$PROJECT_DIR$/configs/mysql.toml" />
+        <option value="$PROJECT_DIR$/configs/casbin.toml" />
       </list>
     </option>
   </component>
@@ -343,7 +335,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-25" y="86" width="934" height="518" extended-state="1" />
+    <frame x="-25" y="86" width="934" height="518" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37899545" />
@@ -657,20 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/casbin.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/mysql.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/configs/new_gen_module.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-38">
@@ -682,6 +660,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/mysql.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/casbin.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
         </state>
       </provider>
     </entry>
