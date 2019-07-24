@@ -270,11 +270,11 @@ func formatContent(modelName, content string) string {
 func formatContentName(modelName, content string) string {
 	snakeModelName := SnakeString(modelName)
 
-	var modelsOrgType []sys.Org
-	ReadJSON("../configs/org_type.json", &modelsOrgType)
+	var modelsOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
 
 	var orgTypeName string
-	for _, v := range modelsOrgType {
+	for _, v := range modelsOrgTypes {
 		if v.Code == snakeModelName {
 			orgTypeName = v.Name
 			break
