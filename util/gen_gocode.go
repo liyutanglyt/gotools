@@ -53,8 +53,8 @@ func genGoProjectCodes() {
 	ReadJSON(getProjectPath()+"/configs/org.json", &models)
 
 	var routeContents, newModelContents string
-	var modelsOrgTypes []sys.Org
-	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
+	var modelOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelOrgTypes)
 
 	for modelName := range models {
 		if modelName == "desc" {
@@ -62,23 +62,23 @@ func genGoProjectCodes() {
 			continue
 		}
 
-		var modelNameId int64 = -1
-		var nextName string
-		for _, v := range modelsOrgTypes {
+		var orgTypeId int64
+		var orgTypeName string
+		for _, v := range modelOrgTypes {
 			if v.Code == modelName {
-				modelNameId = v.Id
+				orgTypeId = v.Id
 				break
 			}
 		}
-		for _, v := range modelsOrgTypes {
-			if v.ParentId == modelNameId {
-				nextName = v.Code
+		for _, v := range modelOrgTypes {
+			if v.ParentId == orgTypeId {
+				orgTypeName = v.Code
 				break
 			}
 		}
 		fields := models[modelName].(map[string]interface{})
 		genModelCodes(modelName, fields)
-		genServiceCodes(modelName, nextName)
+		genServiceCodes(modelName, orgTypeName)
 		genControllerCodes(modelName)
 
 		routeContents += genRouteContent(modelName)
@@ -106,8 +106,8 @@ func genGoModuleCodes() {
 	models := make(map[string]interface{})
 	ReadJSON("../configs/new_gen_module.json", &models)
 
-	var modelsOrgTypes []sys.Org
-	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
+	var modelOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelOrgTypes)
 
 	var routeContents string
 	for modelName := range models {
@@ -116,24 +116,24 @@ func genGoModuleCodes() {
 			continue
 		}
 
-		var modelNameId int64 = -1
-		var nextName string
-		for _, v := range modelsOrgTypes {
+		var orgTypeId int64
+		var orgTypeName string
+		for _, v := range modelOrgTypes {
 			if v.Code == modelName {
-				modelNameId = v.Id
+				orgTypeId = v.Id
 				break
 			}
 		}
-		for _, v := range modelsOrgTypes {
-			if v.ParentId == modelNameId {
-				nextName = v.Code
+		for _, v := range modelOrgTypes {
+			if v.ParentId == orgTypeId {
+				orgTypeName = v.Code
 				break
 			}
 		}
 
 		fields := models[modelName].(map[string]interface{})
 		genModelCodes(modelName, fields)
-		genServiceCodes(modelName, nextName)
+		genServiceCodes(modelName, orgTypeName)
 		genControllerCodes(modelName)
 
 		routeContents += genRouteContent(modelName)
@@ -217,14 +217,14 @@ func genNewModelCodes(newModelContents string) {
 }
 
 // 生成service代码
-func genServiceCodes(modelName, nextName string) {
+func genServiceCodes(modelName, orgTypeName string) {
 	modelName = CamelString(modelName)
-	nextName = CamelString(nextName)
+	orgTypeName = CamelString(orgTypeName)
 	templatePath := getTemplatePath("service")
 
 	content := ReadTemplate(templatePath)
 	content = formatContent(modelName, content)
-	content = formatContentDel(nextName, content)
+	content = formatContentDel(orgTypeName, content)
 
 	fileName := GetGoNewFilePath(BaseServicePath, getGoProjectName(), SnakeString(modelName))
 	GenCodeFile(fileName, content)
@@ -293,11 +293,11 @@ func formatContent(modelName, content string) string {
 func formatContentName(modelName, content string) string {
 	snakeModelName := SnakeString(modelName)
 
-	var modelsOrgTypes []sys.Org
-	ReadJSON("../configs/org_type.json", &modelsOrgTypes)
+	var modelOrgTypes []sys.Org
+	ReadJSON("../configs/org_type.json", &modelOrgTypes)
 
 	var orgTypeName string
-	for _, v := range modelsOrgTypes {
+	for _, v := range modelOrgTypes {
 		if v.Code == snakeModelName {
 			orgTypeName = v.Name
 			break
