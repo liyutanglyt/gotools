@@ -23,6 +23,7 @@ var (
 	BaseServicePath    = "%s/output/%s/internal/service/base/%s.go"
 	BaseControllerPath = "%s/output/%s/internal/api/admin/http/v1/%s.go"
 	BaseRoutesPath     = "%s/output/%s/internal/api/admin/http/v1/routes.go"
+	BaseNewModelPath    = "%s/output/%s/internal/model/model.go"
 
 	SkipFields = []string{"OrgTypeId", "OrgTypeName", "Account"}
 	modelDescs = make(map[string]interface{})
@@ -50,7 +51,7 @@ func genGoProjectCodes() {
 	models := make(map[string]interface{})
 	ReadJSON(getProjectPath()+"/configs/org.json", &models)
 
-	var routeContents string
+	var routeContents, newModelContents string
 	for modelName := range models {
 		if modelName == "desc" {
 			modelDescs = models[modelName].(map[string]interface{})
@@ -63,10 +64,12 @@ func genGoProjectCodes() {
 		genControllerCodes(modelName)
 
 		routeContents += genRouteContent(modelName)
+		newModelContents += genNewModelContent(modelName)
 	}
 
 	// 生成路由配置代码
 	genRouteCodes(routeContents)
+	genNewModelCodes(newModelContents)
 	genMySQLConfig()
 	genCasbinConfig()
 }
@@ -98,6 +101,7 @@ func genGoModuleCodes() {
 		genControllerCodes(modelName)
 
 		routeContents += genRouteContent(modelName)
+
 	}
 
 	// 生成路由配置代码
@@ -156,6 +160,24 @@ func GetGoNewFilePath(filePath, projectName, modelName string) string {
 	}
 
 	return fmt.Sprintf(filePath, getProjectPath(), projectName, modelName)
+}
+
+// 生成model/model.go中所需的代码
+func genNewModelContent(modelName string) string {
+	modelName = CamelString(modelName)
+	content := fmt.Sprintf("new(base.%s),\n\t\t", modelName)
+	return content
+}
+
+func genNewModelCodes(newModelContents string) {
+	templatePath := getTemplatePath("model_go")
+
+	content := ReadTemplate(templatePath)
+	content = formatContent("", content)
+	content = strings.Replace(content, "${newModels}", newModelContents, -1)
+
+	fileName := GetGoNewFilePath(BaseNewModelPath, getGoProjectName(), "")
+	GenCodeFile(fileName, content)
 }
 
 // 生成service代码

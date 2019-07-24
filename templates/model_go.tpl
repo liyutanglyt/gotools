@@ -2,12 +2,12 @@ package model
 
 import (
 	"fmt"
-	"goadmin/internal/common/DB"
-	"goadmin/internal/common/casbins"
-	"goadmin/internal/common/enum/employee_enum"
-	"goadmin/internal/model/base"
-	"goadmin/internal/model/sys"
-	"goadmin/pkg/security"
+	"${project}/internal/common/DB"
+	"${project}/internal/common/casbins"
+	"${project}/internal/common/enum/employee_enum"
+	"${project}/internal/model/base"
+	"${project}/internal/model/sys"
+	"${project}/pkg/security"
 	"strings"
 	"time"
 
@@ -25,6 +25,7 @@ func Init() {
 		new(sys.OrgType),
 		new(sys.SysMenu),
 		new(sys.RoleMenu),
+		${newModels}
 	); err != nil {
 		panic(err)
 	}
