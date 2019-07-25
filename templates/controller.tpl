@@ -23,7 +23,8 @@ type ${modelName}Controller struct {
 func (*${modelName}Controller) Find(c *gin.Context) {
 	page, limit := GetPageParams(c)
 
-	${lowerModelName}s, err := ${lowerModelName}Service.Find(page, limit)
+    parentOrgId := GetInt64("parent_org_id",c)
+	${lowerModelName}s, err := ${lowerModelName}Service.Find(page, limit, parentOrgId)
 	if err != nil {
 		ResponseError(c, err)
 		return
