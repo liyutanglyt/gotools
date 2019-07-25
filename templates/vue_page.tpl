@@ -43,8 +43,8 @@
       :visible.sync="dialog.show"
       width="40%"
       @close="closeDialog">
-      <el-form label-width="100px" :model="form" :rules="rules" ref="form" hidden>${formContents}
-        <el-form-item label="机构类型" prop="org_type_id">
+      <el-form label-width="100px" :model="form" :rules="rules" ref="form">${formContents}
+        <el-form-item label="机构类型" prop="org_type_id" hidden>
            <el-input v-model="form.org_type_id" placeholder="请选择机构类型" maxlength="20" class="form-item"></el-input>
         </el-form-item>
         <div>
@@ -120,9 +120,14 @@ export default {
       this.$refs.form.clearValidate()
     },
     handleAdd() {
+      for (var i = 0; i < this.org_types.length; i++){
+          if ("${orgTypeName}" === this.org_types[i].name){
+              this.selectVal = this.org_types[i].id
+           }
+      }
       this.dialog.show = true
       this.dialog.title = "新增"
-      this.form = {}
+      this.form = {org_type_id:this.selectVal}
     },
     handleEdit(item) {
       this.form = _.cloneDeep(item)
@@ -132,11 +137,6 @@ export default {
     handleSubmit() {
       this.$refs.form.validate(valid => {
         if (valid) {
-           for (var i = 0; i < this.org_types.length; i++){
-                if ("${orgTypeName}" === this.org_types[i].name){
-                    this.form.org_type_id = this.org_types[i].id
-                }
-           }
            let org_type = _.find(this.org_types, {id: this.form.org_type_id})
            if (!org_type) return
 
