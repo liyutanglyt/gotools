@@ -8,7 +8,6 @@ import (
 	"${project}/internal/model/base"
 	"${project}/internal/model/sys"
 	"${project}/pkg/security"
-
 	"strings"
 	"time"
 
