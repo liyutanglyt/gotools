@@ -35,3 +35,7 @@ type PasswordReq struct {
 	Password    string
 	Password2   string
 }
+
+type EmployeeReq struct {
+	Account string
+}
