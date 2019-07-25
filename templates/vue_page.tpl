@@ -132,9 +132,9 @@ export default {
     handleSubmit() {
       this.$refs.form.validate(valid => {
         if (valid) {
-           for (var i=0;i<this.org_types.length;i++){
-                if ("${orgTypeName}"===this.org_types[i].name){
-                    this.form.org_type_id=this.org_types[i].id
+           for (var i = 0; i < this.org_types.length; i++){
+                if ("${orgTypeName}" === this.org_types[i].name){
+                    this.form.org_type_id = this.org_types[i].id
                 }
            }
            let org_type = _.find(this.org_types, {id: this.form.org_type_id})
