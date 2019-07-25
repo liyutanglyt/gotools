@@ -310,7 +310,7 @@ func formatContentName(modelName, content string) string {
 }
 func formatContentDel(nextName, content string) string {
 
-	deleteStatement := fmt.Sprintf("	var count int64\ncount, err = DB.Where(\"org_id = ?\", id).Count(&base.%s{})\n"+
+	deleteStatement := fmt.Sprintf("	var count int64\ncount, err = DB.Where(\"parent_org_id = ?\", id).Count(&base.%s{})\n"+
 		"if err != nil {\nreturn\n}\nif count>0 {\nreturn errors.New(\"先删除下一级用户\")\n}", nextName)
 
 	if nextName != "" {
