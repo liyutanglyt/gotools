@@ -99,7 +99,9 @@ npm install && npm run dev
 ```
 9. 初始化超级管理员账号密码为：super_admin/111111
 
-10. 自动生成一个基础的增删改查前后端代码：
+
+
+### 如何自动生成一个基础的增删改查前后端代码：
 ```
 1. 首先在configs/new_gen_module.json中配置数据库表结构，例如：
 {
