@@ -98,6 +98,56 @@ cd hello-admin
 npm install && npm run dev
 ```
 9. 初始化超级管理员账号密码为：super_admin/111111
+
+10. 自动生成一个基础的增删改查前后端代码：
+```
+1. 首先在configs/new_gen_module.json中配置数据库表结构，例如：
+{
+  "student": {
+    "code":           "string,50,银行编码,1",
+    "name":           "string,80,银行名称,2",
+    "contact_name":   "string,40,联系人,3",
+    "service_phone":  "string,20,联系电话,4",
+    "org_type_id":    "int64, 20,所属机构类型ID,5",
+    "org_type_name":  "string,40,所属机构类型名称,6",
+    "account":        "string,40,管理员账号,7"
+  },
+  "teacher": {
+    "name":           "string,80,服务商名称,1",
+    "contact_name":   "string,40,联系人,2",
+    "service_phone":  "string,20,联系电话,3",
+    "address":        "string,80,联系地址,4",
+    "org_type_id":    "int64, 20,所属机构类型ID,5",
+    "org_type_name":  "string,40,所属机构类型名称,6",
+    "account":        "string,40,管理员账号,7"
+  },
+  "class": {
+    "name":           "string,80,商家名称,1",
+    "contact_name":   "string,40,联系人,2",
+    "service_phone":  "string,20,服务电话,3",
+    "address":        "string,80,商家地址,4",
+    "org_type_id":    "int64, 20,所属机构类型ID,5",
+    "org_type_name":  "string,40,所属机构类型名称,6",
+    "account":        "string,40,管理员账号,7"
+  },
+  "desc": {
+    "student": "学生",
+    "teacher": "老师",
+    "class": "班级"
+  }
+}
+
+2. 然后只需要执行如下命令, 输入项目名称projectName即可，这里项目名称是hello
+// MacOS
+./gotools -newModule -projectName hello
+
+// Windows
+./gotools.exe -newModule -projectName hello
+
+3. 在output目录下会生成gencodes文件夹，包含了后端代码gocode目录，前端代码vuecode目录
+
+```
+
 有疑问可以加我微信：  
 ![微信二维码](https://images.gitee.com/uploads/images/2019/0718/094023_81e9896e_88608.png "微信二维码")
 
