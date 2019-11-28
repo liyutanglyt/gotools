@@ -63,6 +63,19 @@ export default {
         callback()
       }
     }
+    var checkPhone = (rule, value, callback) => {
+      if (!value) {
+        return callback(new Error('联系方式不能为空'));
+      } else {
+        const reg = /^1[3|4|5|6|7|8|9][0-9]\d{8}$/
+        console.log(reg.test(value));
+        if (reg.test(value)) {
+          callback();
+        } else {
+          return callback(new Error('请输入正确的手机号'));
+        }
+      }
+    }
     return {
       isUpdate: false,
       disabled:false,
@@ -70,7 +83,7 @@ export default {
       employeeForm: {},
       editFormRules: {
         name: [{ required: true, message: "用户姓名不能为空", trigger: "blur" }],
-        phone: [{ required: true, message: "联系方式不能为空", trigger: "blur" }],
+        phone: [{ required: true, validator: checkPhone, trigger: 'blur'}],
         role_id: [
           {
             type: "number",

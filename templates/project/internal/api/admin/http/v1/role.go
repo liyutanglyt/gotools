@@ -19,7 +19,7 @@ func (*RoleController) Find(c *gin.Context) {
 	page, limit := GetPageParams(c)
 	claims := GetEmployeeClaims(c)
 
-	roles, err := roleService.Find(claims.RoleId, page, limit)
+	roles, err := roleService.Find(claims.RoleId, claims.EmployeeId, page, limit)
 	if err != nil {
 		ResponseError(c, err)
 		return
@@ -47,6 +47,7 @@ func (*RoleController) Save(c *gin.Context) {
 
 		role.OrgTypeId = orgType.Id
 		role.OrgTypeName = orgType.Name
+		role.CreateById = claims.EmployeeId
 	}
 
 	if err := roleService.Save(role); err != nil {

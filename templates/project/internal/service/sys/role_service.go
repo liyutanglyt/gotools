@@ -10,7 +10,7 @@ import (
 
 type RoleService struct{}
 
-func (*RoleService) Find(roleId int64, page, limit int) (pages *dto.Pages, err error) {
+func (*RoleService) Find(roleId int64, employeeId int64, page, limit int) (pages *dto.Pages, err error) {
 	query := map[string]interface{}{
 		"offset": GetOffset(page, limit),
 		"limit":  limit,
@@ -21,7 +21,8 @@ func (*RoleService) Find(roleId int64, page, limit int) (pages *dto.Pages, err e
 		if _, err = DB.GetById(roleId, &role); err != nil {
 			return nil, err
 		}
-
+		query["role_id"] = roleId
+		query["employee_id"] = employeeId
 		query["org_type_id"] = role.OrgTypeId
 	} else {
 		query["is_admin"] = 1
