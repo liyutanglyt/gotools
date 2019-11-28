@@ -8,6 +8,9 @@ where deleted_at is null
 {% if org_type_id %}
     and `org_type_id` = ?org_type_id
 {% endif %}
+{% if role_id %}
+    and (id = ?role_id or create_by_id = ?employee_id)
+{% endif %}
 {% if is_admin %}
     and `is_admin` = ?is_admin
 {% endif %}
