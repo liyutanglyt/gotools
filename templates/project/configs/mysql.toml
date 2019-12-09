@@ -1,9 +1,0 @@
-# This is a TOML document. Boom~
-host = "57848e453ff95.sh.cdb.myqcloud.com"
-port = 5148
-user = "aesoft_carlife"
-pswd = "7zD!7RgG0BAgjAms"
-dbname = "eparking"
-charset = "utf8mb4"
-
-
