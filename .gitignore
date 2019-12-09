@@ -1,7 +1,0 @@
-.idea/
-.idea/workspace.xml
-cmd/gotools
-cmd/gotools.exe
-output/*
-go.sum
-templates/project/go.sum
